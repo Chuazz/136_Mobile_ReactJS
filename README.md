@@ -1,3 +1,3 @@
 # 136_Mobile_ReactJs
 
-TEst
+A small React App about mobile store
