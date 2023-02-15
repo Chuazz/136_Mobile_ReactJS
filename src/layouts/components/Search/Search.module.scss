@@ -1,0 +1,50 @@
+.container {
+    border-radius: 999px;
+    border: 2px solid #e8e8e8;
+    font-size: 1.5rem;
+    font-weight: 500;
+    padding: 0 20px;
+    margin: 0 20px;
+
+    &:focus-within {
+        border-color: #444;
+    }
+}
+
+.content {
+    padding: 8px 0 8px 8px;
+    flex: 1;
+}
+
+.icon {
+    font-size: 2rem;
+}
+
+.spinner {
+    animation: infiniteRotate 0.7s linear infinite;
+}
+
+@keyframes infiniteRotate {
+    from {
+        transform: rotate(0);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.result {
+    width: 430px;
+    padding: 12px 24px;
+
+    .icon {
+        font-size: 1.7rem;
+        opacity: 0.8;
+    }
+}
+
+.title {
+    font-size: 1.4rem;
+    margin-left: 8px;
+    color: #0000008a;
+}

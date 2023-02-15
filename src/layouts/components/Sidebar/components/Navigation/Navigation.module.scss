@@ -1,0 +1,23 @@
+.container {
+    position: sticky;
+    top: 85px;
+}
+
+.item {
+    flex-direction: column;
+    border-radius: 15px;
+    margin: 2px 0;
+    width: 75px;
+    height: 75px;
+
+    svg {
+        font-size: 2rem;
+    }
+}
+
+.title {
+    font-size: 1.2rem;
+    padding-top: 4px;
+    font-weight: 600;
+    margin-left: 0 !important;
+}

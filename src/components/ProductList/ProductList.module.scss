@@ -1,0 +1,38 @@
+.title {
+    font-size: 2.4rem;
+    font-weight: 700;
+    padding: 0;
+
+    &:hover {
+        background: transparent;
+    }
+}
+
+.showAll {
+    color: red;
+    width: fit-content;
+    padding: 0;
+
+    p {
+        font-size: 1.5rem;
+        font-weight: 500;
+    }
+}
+
+.showAll:hover {
+    text-decoration: underline;
+    background: transparent;
+    cursor: pointer;
+
+    .icon {
+        transform: translateX(5px);
+    }
+}
+
+.icon {
+    transition: all 0.2s linear;
+
+    svg {
+        font-size: 2rem;
+    }
+}

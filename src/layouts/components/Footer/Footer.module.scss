@@ -1,0 +1,53 @@
+.container {
+    background-color: #181821;
+    color: #a9b3bb;
+    padding: 68px 0 68px !important;
+
+    .title {
+        font-size: 1.4rem;
+        line-height: 1.7;
+    }
+}
+
+.column {
+    padding: 0 12px;
+}
+
+.logo {
+    margin-bottom: 20px;
+    color: #fff;
+
+    h2 {
+        margin-top: 7px;
+    }
+
+    p,
+    h2 {
+        font-size: 1.8rem;
+        font-weight: 600;
+    }
+}
+
+.list {
+    a {
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+
+    .listItem {
+        width: auto;
+        opacity: 1;
+        justify-content: flex-start;
+        text-align: left;
+        padding: 6px 0;
+
+        &:hover {
+            background: transparent;
+        }
+    }
+}
+
+.copyRight {
+    margin-top: 48px;
+}

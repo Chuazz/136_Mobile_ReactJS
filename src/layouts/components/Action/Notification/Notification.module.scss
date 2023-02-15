@@ -1,0 +1,50 @@
+.container {
+    width: 382px;
+    overflow: hidden;
+    position: relative;
+    max-height: none;
+
+    .header {
+        padding: 0 24px;
+        margin: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 50px;
+        background: #fff;
+    }
+}
+
+.title {
+    text-transform: none;
+    font-size: 1.8rem;
+}
+
+.img {
+    border-radius: 50%;
+    width: 42px;
+}
+
+.icon {
+    svg {
+        font-size: 1.8rem;
+    }
+}
+
+.items {
+    max-height: 68vh;
+    overflow: auto;
+    margin-right: -12px;
+    margin-top: 40px;
+}
+
+.item {
+    padding: 12px;
+    margin-right: 12px;
+    border-radius: 12px;
+    
+    &:hover{
+        background: #f3f3f4;
+    }
+}

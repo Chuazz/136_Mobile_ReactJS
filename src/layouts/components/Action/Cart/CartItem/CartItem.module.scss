@@ -1,0 +1,51 @@
+.container {
+    margin: 8px 0;
+    border-radius: 10px;
+    margin-right: 12px;
+    transform-origin: right;
+
+    .arrow {
+        margin-left: 16px;
+
+        svg {
+            font-size: 1.2rem;
+        }
+    }
+
+    .option {
+        margin: 0;
+        width: 100%;
+        justify-content: flex-start;
+        border-radius: 0;
+    }
+}
+
+.title {
+    margin-bottom: 12px;
+}
+
+.img {
+    width: 70px;
+}
+
+.remove {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #ff8484;
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    padding: 0;
+
+    &:hover {
+        background: red;
+    }
+
+    svg {
+        color: #fff;
+        font-size: 1.2rem;
+        opacity: 1;
+    }
+}

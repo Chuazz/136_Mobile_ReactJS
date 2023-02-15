@@ -1,0 +1,63 @@
+.rectangle,
+.circle {
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s linear;
+
+    & + .circle {
+        margin-left: 8px;
+    }
+
+    & + .rectangle{
+        margin-left: 8px;
+    }
+
+    &:hover {
+        opacity: 1;
+    }
+
+    svg {
+        font-size: 1.8rem;
+        opacity: 0.7;
+    }
+}
+
+.rectangle {
+    background: transparent;
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 12px;
+
+    &:hover {
+        background: var(--white-1);
+    }
+
+    &.active {
+        background: var(--white-2);
+    }
+}
+
+.circle {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}
+
+.text {
+    font-size: 1.5rem;
+    font-weight: 400;
+
+    & ~ .rightIcon{
+        margin-left: 4px;
+    }
+}
+
+.leftIcon ~ .text{
+    margin-left: 4px;
+}
+
+.leftIcon,.rightIcon{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}

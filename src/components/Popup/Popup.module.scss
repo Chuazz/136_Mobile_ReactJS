@@ -1,0 +1,13 @@
+.container {
+    background: var(--white-3);
+    padding: 12px;
+    width: 100%;
+    min-height: 50px;
+    max-height: calc(90vh - 66px);
+    overflow-y: auto;
+    font-size: 1.4rem;
+    color: #444;
+    box-shadow: 0 -4px 32px rgb(0 0 0 / 20%);
+    border-radius: 10px;
+    background: #fff;
+}
