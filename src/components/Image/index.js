@@ -1,7 +1,8 @@
 // Framework
+import propTypes from 'prop-types';
 import { forwardRef, memo, useState } from 'react';
 
-function Image({ src, className, alt = 'error', onClick, ...props }, ref) {
+const Image = forwardRef(({ src, className, alt = 'error', onClick, ...props }, ref) => {
     const [errSrc, setErrSrc] = useState('');
 
     return (
@@ -15,6 +16,13 @@ function Image({ src, className, alt = 'error', onClick, ...props }, ref) {
             {...props}
         />
     );
-}
+});
 
-export default memo(forwardRef(Image));
+Image.propTypes = {
+    src: propTypes.string.isRequired,
+    className: propTypes.string,
+    alt: propTypes.string,
+    onClick: propTypes.func,
+};
+
+export default memo(Image);

@@ -5,7 +5,7 @@ import { memo } from 'react';
 // Style
 import styles from './Option.module.scss';
 
-function Option({ capacities, currCapacity, currColors, setcurrCapacity, setcurrColors, setcurrColor }) {
+const Option = ({ capacities, currCapacity, currColors, setcurrCapacity, setcurrColors, setcurrColor }) => {
     return (
         <>
             <div className="row ali-center ma-b-12">
@@ -32,6 +32,6 @@ function Option({ capacities, currCapacity, currColors, setcurrCapacity, setcurr
             </div>
         </>
     );
-}
+};
 
 export default memo(Option);

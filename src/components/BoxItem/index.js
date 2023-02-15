@@ -1,12 +1,14 @@
 // Framework
+import propTypes from 'prop-types';
 import clsx from 'clsx';
 import { Link } from 'react-router-dom';
 import Image from '../Image';
 
 // Style
 import styles from './BoxItem.module.scss';
+import { memo } from 'react';
 
-function BoxItem({ className, data, imgClass, titleClass, descriptionClass }) {
+const BoxItem = ({ className, data, imgClass, titleClass, descriptionClass }) => {
     const classNames = clsx(styles.container, className, 'row ali-center');
 
     return (
@@ -19,6 +21,14 @@ function BoxItem({ className, data, imgClass, titleClass, descriptionClass }) {
             </div>
         </Link>
     );
-}
+};
 
-export default BoxItem;
+BoxItem.propTypes = {
+    className: propTypes.string,
+    data: propTypes.object.isRequired,
+    imgClass: propTypes.string,
+    titleClass: propTypes.string,
+    descriptionClass: propTypes.string,
+};
+
+export default memo(BoxItem);

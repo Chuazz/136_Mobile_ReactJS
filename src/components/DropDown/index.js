@@ -1,4 +1,5 @@
 // Framework
+import propTypes from 'prop-types';
 import clsx from 'clsx';
 import { FaChevronDown } from 'react-icons/fa';
 import { animated, useSpring } from '@react-spring/web';
@@ -11,7 +12,7 @@ import Button from '../Button';
 // Styles
 import styles from './DropDown.module.scss';
 
-function DropDown({
+const DropDown = ({
     className,
     options,
     titleClass,
@@ -22,7 +23,7 @@ function DropDown({
     onClick = () => {},
     onOptionClick = () => {},
     onChange = () => {},
-}) {
+}) => {
     const [currOptions, setcurrOptions] = useState(options);
     const [currOption, setcurrOption] = useState(selectedValue || options[0]);
 
@@ -80,7 +81,10 @@ function DropDown({
                 onClick={() => optionOnClick(option)}
                 leftIcon={
                     isColorAfter ? (
-                        <span style={{ '--bg-color': option.value }} className={clsx(styles.colorAfter, colorAfterClass)}></span>
+                        <span
+                            style={{ '--bg-color': option.value }}
+                            className={clsx(styles.colorAfter, colorAfterClass)}
+                        ></span>
                     ) : undefined
                 }
             >
@@ -132,6 +136,19 @@ function DropDown({
             </Popup>
         </div>
     );
-}
+};
+
+DropDown.propTypes = {
+    className: propTypes.string,
+    options: propTypes.array.isRequired,
+    titleClass: propTypes.string,
+    colorAfterClass: propTypes.string,
+    selectedValue: propTypes.object,
+    isColorAfter: propTypes.bool,
+    tippyProp: propTypes.object,
+    onClick: propTypes.func,
+    onOptionClick: propTypes.func,
+    onChange: propTypes.func,
+};
 
 export default memo(DropDown);

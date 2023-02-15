@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 import styles from './Name.module.scss';
 
-function Name({ className, name, linkTo }) {
+const Name = ({ className, name, linkTo }) => {
     const [visible, setVisible] = useState(false);
 
     const linkRef = useRef();
@@ -26,7 +26,7 @@ function Name({ className, name, linkTo }) {
         <Popup tippyRender={tippyRender} tippyProp={tippyProp} renderClass={clsx(styles.content)}>
             <Link
                 to={linkTo}
-                className={clsx(styles.name)}
+                className={clsx(styles.name, className)}
                 onMouseOver={onHover}
                 onMouseOut={() => setVisible(false)}
                 ref={linkRef}
@@ -35,6 +35,6 @@ function Name({ className, name, linkTo }) {
             </Link>
         </Popup>
     );
-}
+};
 
 export default memo(Name);

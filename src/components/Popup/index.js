@@ -1,4 +1,5 @@
 // Framework
+import propTypes from 'prop-types';
 import clsx from 'clsx';
 import { forwardRef, memo } from 'react';
 import { animated, useSpring } from '@react-spring/web';
@@ -7,7 +8,7 @@ import Tippy from '@tippyjs/react/headless';
 // Style
 import styles from './Popup.module.scss';
 
-function Popup({ className, tippyRender, renderClass, children, tippyProp = {}, ...props }, ref) {
+const Popup = forwardRef(({ className, tippyRender, renderClass, children, tippyProp = {}, ...props }, ref) => {
     const animateConfig = { duration: 100 };
     const [animate, setAnimate] = useSpring(() => ({
         opacity: 0,
@@ -62,6 +63,16 @@ function Popup({ className, tippyRender, renderClass, children, tippyProp = {}, 
             </Tippy>
         </span>
     );
-}
+});
 
-export default memo(forwardRef(Popup));
+Popup.propTypes = {
+    className: propTypes.string,
+    tippyRender: propTypes.node,
+    renderClass: propTypes.string,
+    children: propTypes.node.isRequired,
+    tippyProp: propTypes.object,
+};
+
+Popup.displayName = 'Popup';
+
+export default memo(Popup);

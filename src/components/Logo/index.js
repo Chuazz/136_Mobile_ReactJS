@@ -1,4 +1,5 @@
 // Framework
+import propTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { memo, useContext } from 'react';
 import { PageContext } from '@/contexts/pageProvider';
@@ -14,7 +15,7 @@ import styles from './Logo.module.scss';
 import { logo } from '@/assets/images';
 import routes from '@/config/routes';
 
-function Logo({ className }) {
+const Logo = ({ className }) => {
     const context = useContext(PageContext);
 
     return (
@@ -27,6 +28,10 @@ function Logo({ className }) {
             </div>
         </div>
     );
-}
+};
+
+Logo.propTypes = {
+    className: propTypes.string,
+};
 
 export default memo(Logo);

@@ -1,6 +1,7 @@
 // Framework
+import propTypes from 'prop-types';
 import clsx from 'clsx';
-import { useState } from 'react';
+import { memo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { BsFillBagFill } from 'react-icons/bs';
 
@@ -16,7 +17,7 @@ import Name from './Name';
 import { AddCommasForThounsand } from '@/utils';
 import Button from '../Button';
 
-function ProductItem({ className, info }) {
+const ProductItem = ({ className, info }) => {
     const [currCapacity, setcurrCapacity] = useState(info.capacities[0]);
     const [currColors, setCurrColors] = useState(info.capacities.find((t) => t.value === currCapacity.value).colors);
     const [currColor, setcurrColor] = useState(currColors[0]);
@@ -61,6 +62,11 @@ function ProductItem({ className, info }) {
             </div>
         </div>
     );
-}
+};
 
-export default ProductItem;
+ProductItem.propTypes = {
+    className: propTypes.string,
+    info: propTypes.object,
+};
+
+export default memo(ProductItem);

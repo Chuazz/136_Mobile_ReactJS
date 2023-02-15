@@ -1,4 +1,5 @@
 // Framework
+import propTypes from 'prop-types';
 import { PageContext } from '@/contexts/pageProvider';
 import clsx from 'clsx';
 import { memo, useContext } from 'react';
@@ -54,5 +55,15 @@ function ProductList({ className, title, titleClass, showAllMessage, showAllIcon
         </div>
     );
 }
+
+ProductList.propTypes = {
+    className: propTypes.string,
+    title: propTypes.node,
+    titleClass: propTypes.string,
+    showAllMessage: propTypes.node,
+    showAllIcon: propTypes.node,
+    showAllLinkTo: propTypes.string,
+    children: propTypes.node.isRequired,
+};
 
 export default memo(ProductList);

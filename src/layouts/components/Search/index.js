@@ -14,16 +14,15 @@ import BoxItem from '@/components/BoxItem';
 const testData = {
     imgPath:
         'https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_75,s_300x300/https://cdn.tgdd.vn/Products/Images/42/289700/s16/iPhone-14-Pro-series-%20(1)-650x650.png',
-    title: "iPhone 14 Pro Max Đen 256GB",
-    linkTo: "/test1/test2"
+    title: 'iPhone 14 Pro Max Đen 256GB',
+    linkTo: '/test1/test2',
 };
 
-function Search() {
+const Search = () => {
     const [content, setcontent] = useState('');
     const [visible, setVisible] = useState(true);
     const tippyProp = {
         visible: content && visible ? true : false,
-        // visible: true,
     };
 
     const tippyRender = (
@@ -97,7 +96,7 @@ function Search() {
             </Popup>
         </div>
     );
-}
+};
 
 export default memo(Search);
 
