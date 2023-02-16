@@ -4,15 +4,16 @@ import { BsFillBagFill } from 'react-icons/bs';
 import clsx from 'clsx';
 
 // Component
-import Popup from '@/components/Popup';
 import Button from '@/components/Button';
 import Box from '@/components/Box';
+import Popup from '@/components/Popup';
+import CartItem from './CartItem';
 
 // Style
 import styles from './Cart.module.scss';
-import CartItem from './CartItem';
+
+// Data
 import { carts } from '@/data';
-import { useRef } from 'react';
 
 function Cart() {
     const tippyRender = (

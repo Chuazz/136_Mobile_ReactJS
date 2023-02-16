@@ -1,18 +1,17 @@
 // Framework
 import clsx from 'clsx';
-import { memo, useRef } from 'react';
+import { memo, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaTrash } from 'react-icons/fa';
 import { animated, useSpring } from '@react-spring/web';
 
-// Style
-import styles from './CartItem.module.scss';
-
 // Component
 import Button from '@/components/Button';
-import Image from '@/components/Image';
 import DropDown from '@/components/DropDown';
-import { useState } from 'react';
+import Image from '@/components/Image';
+
+// Style
+import styles from './CartItem.module.scss';
 
 function CartItem({ data }) {
     const cartItemRef = useRef();

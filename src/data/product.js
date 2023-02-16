@@ -9,14 +9,14 @@ const products = [
                 price: 31990000,
                 colors: [
                     {
-                        linkTo: '/phone/14-pro-max?v=256gb/c=#594f63',
+                        linkTo: '14-pro-max?v=256gb&c=f4e8ce',
                         value: '#594f63',
                         label: 'Tím',
                         imgPath:
                             'https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_75/https://cdn.tgdd.vn/Products/Images/42/251192/s16/iphone-14-pro-max-tim-650x650.png',
                     },
                     {
-                        linkTo: '/phone/14-pro-max?v=256gb/c=#f4e8ce',
+                        linkTo: '14-pro-max?v=256gb/c=#f4e8ce',
                         value: '#f4e8ce',
                         label: 'Vàng',
                         imgPath:
@@ -71,7 +71,7 @@ const products = [
                 price: 31990000,
                 colors: [
                     {
-                        linkTo: '/phone/14-pro-max?v=256gb/c=#594f63',
+                        linkTo: '/14-pro-max?v=256gb/c=#594f63',
                         value: '#594f63',
                         label: 'Tím',
                         imgPath:

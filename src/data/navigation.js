@@ -1,11 +1,13 @@
+// Framework
 import { AiFillHome } from 'react-icons/ai';
 import { MdSmartphone, MdPhonelinkSetup } from 'react-icons/md';
 import { HiWrenchScrewdriver } from 'react-icons/hi2';
 import { FaHeadphones } from 'react-icons/fa';
 
-import routes from '@/config/routes';
+// Config
+import { routes } from '@/config';
 
-const navgaions = [
+const navigations = [
     {
         id: 'home',
         name: 'Chính',
@@ -38,4 +40,4 @@ const navgaions = [
     },
 ];
 
-export default navgaions;
+export default navigations;
