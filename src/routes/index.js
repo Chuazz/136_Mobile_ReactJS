@@ -1,6 +1,6 @@
 // Component
 import routes from '@/config/routes';
-import { Home, Phone, Accessory, Repair, OldPhone, Cart } from '@/pages/';
+import { Home, Phone, Accessory, Repair, OldPhone, Cart, Detail } from '@/pages/';
 
 const publicRoutes = [
     {
@@ -26,6 +26,10 @@ const publicRoutes = [
     {
         path: routes.cart,
         element: Cart,
+    },
+    {
+        path: routes.detail,
+        element: Detail,
     },
 ];
 
