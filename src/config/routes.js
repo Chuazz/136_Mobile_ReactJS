@@ -5,6 +5,7 @@ const routes = {
     accessory: '/accessory',
     cart: '/cart',
     repair: '/repair',
+    detail: "/:linkTo"
 };
 
 export default routes;
