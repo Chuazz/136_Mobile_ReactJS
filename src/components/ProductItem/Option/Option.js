@@ -8,7 +8,7 @@ import DropDown from '@/components/DropDown';
 // Style
 import styles from './Option.module.scss';
 
-const Option = ({ capacities, currCapacity, currColors, setcurrCapacity, setcurrColors, setcurrColor }) => {
+const Option = ({ capacities, currCapacity, currColors, setCurrCapacity, setCurrColors, setCurrColor, setCurrImg }) => {
     return (
         <>
             <div className="row ali-center ma-b-12">
@@ -16,8 +16,10 @@ const Option = ({ capacities, currCapacity, currColors, setcurrCapacity, setcurr
                 <DropDown
                     options={capacities}
                     onOptionClick={(selected) => {
-                        setcurrCapacity(selected);
-                        setcurrColors(capacities.find((t) => t.value === selected.value).colors);
+                        setCurrColors(() => {
+                            const currColors = capacities.find((t) => t.value === selected.value).colors;
+                            return currColors;
+                        });
                     }}
                 />
             </div>
@@ -28,9 +30,12 @@ const Option = ({ capacities, currCapacity, currColors, setcurrCapacity, setcurr
                     options={currColors}
                     isColorAfter
                     onOptionClick={(selected) => {
-                        setcurrColor(selected);
+                        setCurrColor(selected);
+                        setCurrImg(selected.value);
                     }}
-                    onChange={(options) => setcurrColor(options[0])}
+                    onChange={(options, optionChange) => {
+                        setCurrImg(optionChange.value);
+                    }}
                 />
             </div>
         </>

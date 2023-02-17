@@ -17,47 +17,46 @@ import Option from './Option';
 // Utils
 import { AddCommasForThounsand } from '@/utils';
 
-const ProductItem = ({ className, info }) => {
-    const [currCapacity, setcurrCapacity] = useState(info.capacities[0]);
-    const [currColors, setCurrColors] = useState(info.capacities.find((t) => t.value === currCapacity.value).colors);
-    const [currColor, setcurrColor] = useState(currColors[0]);
-    const [carted, SetCarted] = useState(false);
+const ProductItem = ({ className, product }) => {
+    const [currCapacity, setCurrCapacity] = useState(product.capacities[0]);
+    const [currColors, setCurrColors] = useState(product.capacities.find((t) => t.value === currCapacity.value).colors);
+    const [currColor, setCurrColor] = useState(currColors[0]);
+    const [currImg, setCurrImg] = useState(() => {
+        const [currImgs] = product.sharedImgs.filter((sharedImg) => sharedImg.colorValue === currColor.value);
+
+        return currImgs.imgPaths[0];
+    });
+
+    const hanldeSetCurrImg = (colorValue) => {
+        const [currImgs] = product.sharedImgs.filter((sharedImg) => sharedImg.colorValue === colorValue);
+
+        setCurrImg(currImgs.imgPaths[0]);
+    };
 
     return (
         <div className={clsx(styles.container, className)}>
             <div className={clsx(styles.info, 'row ali-start relative')}>
                 <Link to={`./@${currColor.linkTo}`} className={clsx(styles.thumbnail)}>
-                    <Image src={currColor.imgPath} />
+                    <Image src={currImg} />
                 </Link>
 
                 <div className="flex-1">
-                    <Name className={styles.name} name={info.name} linkTo={currColor.linkTo} />
+                    <Name className={styles.name} name={product.name} linkTo={currColor.linkTo} />
 
                     <div className={clsx(styles.options, 'row ali-center')}>
                         <Option
-                            capacities={info.capacities}
-                            currCapacity={currCapacity}
+                            capacities={product.capacities}
                             currColors={currColors}
-                            setcurrCapacity={(capacity) => setcurrCapacity(capacity)}
-                            setcurrColors={(colors) => setCurrColors(colors)}
-                            setcurrColor={(color) => setcurrColor(color)}
+                            setCurrCapacity={(capacity) => setCurrCapacity(capacity)}
+                            setCurrColors={(colors) => setCurrColors(colors)}
+                            setCurrColor={(color) => setCurrColor(color)}
+                            setCurrImg={(imgPath) => hanldeSetCurrImg(imgPath)}
                         />
                     </div>
 
                     <p className={clsx(styles.price)}>
                         <Link to={currColor.linkTo}>{AddCommasForThounsand(currCapacity.price)}</Link>
                     </p>
-                </div>
-
-                <div>
-                    <Button
-                        leftIcon={<BsFillBagFill />}
-                        active={carted}
-                        onClick={() => SetCarted(!carted)}
-                        activeClass={clsx(styles.carted)}
-                        leftIconClass={clsx(styles.cartIcon)}
-                        className={clsx(styles.cart)}
-                    />
                 </div>
             </div>
         </div>

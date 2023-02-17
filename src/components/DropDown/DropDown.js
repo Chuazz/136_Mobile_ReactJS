@@ -61,17 +61,17 @@ const DropDown = ({
 
     const onOptionsChange = () => {
         if (options !== currOptions) {
-            if (currOption !== options[0]) {
+            if (options.filter((option) => option.value === currOption.value).length <= 0) {
                 setcurrOption(options[0]);
+                onChange(options, options[0]);
             }
             setcurrOptions(options);
-            onChange(options);
         }
     };
 
     useEffect(() => {
         onOptionsChange();
-    });
+    }, [options]);
 
     const tippyRender = options.map((option) => (
         <div key={option.value}>
@@ -88,7 +88,7 @@ const DropDown = ({
                     ) : undefined
                 }
             >
-                <p>{option.label}</p>
+                <p>{option.label || option.value}</p>
             </Button>
         </div>
     ));
@@ -131,7 +131,7 @@ const DropDown = ({
                     active
                     onClick={dropDownOnClick}
                 >
-                    <p className={clsx(styles.title)}>{currOption.label}</p>
+                    <p className={clsx(styles.title)}>{currOption.label || currOption.value}</p>
                 </Button>
             </Popup>
         </div>

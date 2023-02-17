@@ -1,6 +1,5 @@
 // Framework
 import propTypes from 'prop-types';
-import { PageContext } from '@/contexts/pageProvider';
 import clsx from 'clsx';
 import { memo, useContext } from 'react';
 
@@ -9,6 +8,9 @@ import Button from '../Button';
 
 // Style
 import styles from './ProductList.module.scss';
+
+// Context
+import { PageContext } from '@/contexts/pageProvider';
 
 function ProductList({ className, title, titleClass, showAllMessage, showAllIcon, showAllLinkTo, children, ...props }) {
     const classNames = clsx(styles.container, className);
