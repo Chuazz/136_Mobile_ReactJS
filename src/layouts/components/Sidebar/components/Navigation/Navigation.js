@@ -1,6 +1,6 @@
 // Framework
 import clsx from 'clsx';
-import { memo, useContext } from 'react';
+import { memo } from 'react';
 
 // Component
 import Button from '@/components/Button';
@@ -10,32 +10,27 @@ import styles from './Navigation.module.scss';
 
 // Data
 import { navigations } from '@/data';
-
-// Context
-import { PageContext } from '@/contexts/pageProvider';
+import { NavLink } from 'react-router-dom';
 
 function Navigation() {
-    const context = useContext(PageContext);
-    const active = context.active;
-
     return (
         <div className={clsx(styles.container, 'row flex-column  h-100')}>
             {navigations.map((navigation) => {
-                let isActive = active === navigation.id ? true : false;
-
                 return (
                     <div key={navigation.id}>
-                        <Button
-                            tag="link"
-                            textClass={clsx(styles.title)}
-                            className={clsx(styles.item)}
-                            leftIcon={navigation.icon}
-                            linkTo={navigation.path}
-                            active={isActive}
-                            onClick={() => context.onClick(navigation.id)}
+                        <NavLink
+                            className={(nav) => clsx(styles.link, { [styles.active]: nav.isActive })}
+                            to={navigation.linkTo}
                         >
-                            {navigation.name}
-                        </Button>
+                            <Button
+                                textClass={clsx(styles.title)}
+                                className={clsx(styles.item, 'w-100')}
+                                leftIcon={navigation.icon}
+                                linkTo={navigation.linkTo}
+                            >
+                                {navigation.name}
+                            </Button>
+                        </NavLink>
                     </div>
                 );
             })}

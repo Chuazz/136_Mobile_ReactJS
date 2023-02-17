@@ -1,7 +1,7 @@
 // Framework
 import propTypes from 'prop-types';
 import clsx from 'clsx';
-import { memo, useContext } from 'react';
+import { memo } from 'react';
 
 // Component
 import Button from '../Button';
@@ -9,18 +9,9 @@ import Button from '../Button';
 // Style
 import styles from './ProductList.module.scss';
 
-// Context
-import { PageContext } from '@/contexts/pageProvider';
-
 function ProductList({ className, title, titleClass, showAllMessage, showAllIcon, showAllLinkTo, children, ...props }) {
     const classNames = clsx(styles.container, className);
     const icon = <div className={clsx(styles.icon, 'row ali-center')}>{showAllIcon}</div>;
-
-    const context = useContext(PageContext);
-
-    const titleClick = () => {
-        context.onClick(showAllLinkTo);
-    };
 
     return (
         <div>
@@ -29,7 +20,6 @@ function ProductList({ className, title, titleClass, showAllMessage, showAllIcon
                     <Button
                         tag="link"
                         linkTo={showAllLinkTo}
-                        onClick={titleClick}
                         className={clsx(styles.title, 'opcity-1 w-fit-content')}
                         textClass={clsx(styles.title, titleClass)}
                     >
@@ -44,7 +34,6 @@ function ProductList({ className, title, titleClass, showAllMessage, showAllIcon
                         className={clsx(styles.showAll, 'opcity-1')}
                         textClass={clsx(styles.showAllMess)}
                         rightIcon={icon}
-                        onClick={titleClick}
                     >
                         {showAllMessage}
                     </Button>

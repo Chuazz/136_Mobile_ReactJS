@@ -5,10 +5,14 @@
 
 .item {
     flex-direction: column;
-    border-radius: 15px;
     margin: 2px 0;
     width: 75px;
     height: 75px;
+    border-radius: 0;
+
+    &:hover {
+        background: initial;
+    }
 
     svg {
         font-size: 2rem;
@@ -20,4 +24,26 @@
     padding-top: 4px;
     font-weight: 600;
     margin-left: 0 !important;
+}
+
+.link {
+    display: block;
+    height: 100%;
+    border-radius: 12px;
+    transition: all 0.2s linear;
+
+    &:hover {
+        background: var(--white-1);
+    }
+}
+
+.link.active {
+    background: var(--white-2);
+
+    &:hover {
+        background: var(--white-2);
+    }
+}
+
+.active {
 }

@@ -11,31 +11,31 @@ const navigations = [
     {
         id: 'home',
         name: 'Chính',
-        path: routes.home,
+        linkTo: routes.home,
         icon: <AiFillHome />,
     },
     {
         id: 'phone',
         name: 'iPhone',
-        path: routes.phone,
+        linkTo: routes.phone,
         icon: <MdSmartphone />,
     },
     {
         id: 'old_phone',
         name: 'Cũ',
-        path: routes.old_phone,
+        linkTo: routes.old_phone,
         icon: <MdPhonelinkSetup />,
     },
     {
         id: 'accessory',
         name: 'Phụ kiện',
-        path: routes.accessory,
+        linkTo: routes.accessory,
         icon: <FaHeadphones />,
     },
     {
         id: 'repair',
         name: 'Sửa chửa',
-        path: routes.accessory,
+        linkTo: routes.accessory,
         icon: <HiWrenchScrewdriver />,
     },
 ];
