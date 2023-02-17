@@ -3,14 +3,12 @@ import propTypes from 'prop-types';
 import clsx from 'clsx';
 import { memo, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { BsFillBagFill } from 'react-icons/bs';
 
 // Style
 import styles from './ProductItem.module.scss';
 
 // Component
 import Image from '../Image';
-import Button from '../Button';
 import Name from './Name';
 import Option from './Option';
 
@@ -54,8 +52,15 @@ const ProductItem = ({ className, product }) => {
                         />
                     </div>
 
-                    <p className={clsx(styles.price)}>
-                        <Link to={currColor.linkTo}>{AddCommasForThounsand(currCapacity.price)}</Link>
+                    <p className="row ali-center jus-end">
+                        {currCapacity.discount && (
+                            <Link to={currColor.linkTo} className={clsx(styles.discount)}>
+                                {AddCommasForThounsand(currCapacity.discount)}
+                            </Link>
+                        )}
+                        <Link to={currColor.linkTo} className={clsx(styles.price)}>
+                            {AddCommasForThounsand(currCapacity.price)}
+                        </Link>
                     </p>
                 </div>
             </div>
