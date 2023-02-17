@@ -31,7 +31,7 @@ function Home() {
                     className={clsx(styles.list)}
                 >
                     {products.map((product) => (
-                        <ProductItem className={clsx(styles.item, 'h-4')} key={product.name} info={product} />
+                        <ProductItem className={clsx(styles.item, 'h-4')} key={product.name} product={product} />
                     ))}
                 </ProductList>
             </div>
