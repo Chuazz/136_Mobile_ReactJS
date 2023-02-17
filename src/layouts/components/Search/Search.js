@@ -1,12 +1,12 @@
 // Framework
 import clsx from 'clsx';
 import { memo, useEffect, useState } from 'react';
-import { FiSearch } from 'react-icons/fi';
 
 // Component
 import Box from '@/components/Box';
 import BoxItem from '@/components/BoxItem';
 import Popup from '@/components/Popup';
+import { MagnifyingGlass } from '@/components/SvgIcon/SvgIcon';
 
 // Style
 import styles from './Search.module.scss';
@@ -28,7 +28,7 @@ const Search = () => {
     const tippyRender = (
         <div>
             <div className="row ali-center ma-b-16">
-                <FiSearch className={clsx(styles.icon)} />
+                <MagnifyingGlass className={clsx(styles.icon)} />
                 <div className={clsx(styles.title)}>Kết quả tìm kiếm cho '{content}'</div>
             </div>
 
@@ -84,7 +84,7 @@ const Search = () => {
                 tippyRender={tippyRender}
                 tippyProp={tippyProp}
             >
-                <FiSearch className={clsx(styles.icon)} />
+                <MagnifyingGlass className={clsx(styles.icon)} />
 
                 <input
                     className={clsx(styles.content)}
@@ -99,12 +99,3 @@ const Search = () => {
 };
 
 export default memo(Search);
-
-{
-    /* {visible && (
-                            <>
-                                <ImSpinner7 className={clsx(styles.icon, styles.spinner)} />
-                                <div className={clsx(styles.title)}>Kết quả tìm kiếm cho '{content}'</div>
-                            </>
-                        )} */
-}

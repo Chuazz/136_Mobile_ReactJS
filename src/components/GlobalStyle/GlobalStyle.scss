@@ -12,6 +12,7 @@
     box-sizing: border-box;
     text-decoration: none;
     color: var(--black-2);
+    font-family: var(--main-font);
 }
 
 ::-webkit-scrollbar {
@@ -54,6 +55,7 @@ input {
     outline: none;
     color: inherit;
     font-size: inherit;
+    caret-color: red;
 }
 
 img {
@@ -74,6 +76,10 @@ a {
 
 .opcity-1 {
     opacity: 1;
+}
+
+.w-100 {
+    width: 100%;
 }
 
 .w-fit-content {
