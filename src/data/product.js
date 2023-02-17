@@ -6,6 +6,7 @@ const products = [
             {
                 value: '128GB',
                 price: 29190000,
+                discount: 34490000,
                 colors: [
                     {
                         linkTo: '14-pro-max?v=128gb&c=594f63',
