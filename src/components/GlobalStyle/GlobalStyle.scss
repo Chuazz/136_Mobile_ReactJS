@@ -4,6 +4,7 @@
 
     --white-1: #f5f5f5;
     --white-2: #e8ebed;
+    --black-1: #292929;
 }
 
 * {
@@ -11,8 +12,8 @@
     padding: 0;
     box-sizing: border-box;
     text-decoration: none;
-    color: var(--black-2);
     font-family: var(--main-font);
+    list-style: none;
 }
 
 ::-webkit-scrollbar {
@@ -38,6 +39,7 @@ html {
     font-weight: 500;
     font-size: 62.5%;
     scroll-behavior: smooth;
+    color: var(--black-1);
 }
 
 body {

@@ -10,6 +10,7 @@ import ProductItem from '@/components/ProductItem';
 
 // Style
 import styles from './Home.module.scss';
+import './components/Banner/CustomSlick.scss';
 
 // Config
 import { routes } from '@/config';
@@ -19,7 +20,7 @@ import { products } from '@/data';
 
 function Home() {
     return (
-        <>
+        <div id="home">
             <Banner className={clsx(styles.banner)} />
 
             <div className={clsx(styles.container)}>
@@ -35,7 +36,7 @@ function Home() {
                     ))}
                 </ProductList>
             </div>
-        </>
+        </div>
     );
 }
 

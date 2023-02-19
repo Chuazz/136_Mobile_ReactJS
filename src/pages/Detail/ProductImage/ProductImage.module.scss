@@ -1,0 +1,63 @@
+.container {
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 8;
+    background: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    transition: all 0.1s linear;
+
+    &:hover {
+        transform: translateY(-50%) scale(1.1);
+    }
+
+    svg {
+        font-size: 1.5rem;
+    }
+}
+
+.arrowLeft {
+    left: -20px;
+}
+
+.arrowRight {
+    right: -20px;
+}
+
+.imgs {
+    margin: 24px auto 0 auto;
+    width: 70%;
+
+    &::after,
+    &::before {
+        position: absolute;
+        content: '';
+        top: 50%;
+        z-index: 7;
+        transform: translateY(-54%);
+        width: 50px;
+        height: 50px;
+    }
+
+    &::after {
+        background: linear-gradient(to left, transparent, #fff);
+        left: 0;
+    }
+
+    &::before {
+        background: linear-gradient(to right, transparent, #fff);
+        right: 0;
+    }
+}
+
+.imgs .img {
+    border-radius: 10px;
+}

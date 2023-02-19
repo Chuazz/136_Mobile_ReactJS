@@ -34,7 +34,7 @@ const ProductItem = ({ className, product }) => {
     return (
         <div className={clsx(styles.container, className)}>
             <div className={clsx(styles.info, 'row ali-start relative')}>
-                <Link to={`./@${currColor.linkTo}`} className={clsx(styles.thumbnail)}>
+                <Link to={`/${currColor.linkTo}`} className={clsx(styles.thumbnail)}>
                     <Image src={currImg} />
                 </Link>
 

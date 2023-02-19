@@ -1,16 +1,16 @@
 $btn-width: 60px;
 
-.slick-slider {
+#home .slick-slider {
     position: relative;
     height: 100%;
 }
 
-.slick-list {
+#home .slick-list {
     border-radius: 25px;
     height: 100%;
 }
 
-.slick-dots {
+#home .slick-dots {
     position: absolute;
     display: flex !important;
     list-style: none;
@@ -39,8 +39,8 @@ $btn-width: 60px;
     }
 }
 
-.slick-prev,
-.slick-next {
+#home .slick-prev,
+#home .slick-next {
     width: $btn-width;
     height: $btn-width;
     position: absolute;
@@ -65,7 +65,7 @@ $btn-width: 60px;
     }
 }
 
-.slick-next {
+#home .slick-next {
     right: calc($btn-width / -2);
 
     svg {
@@ -73,7 +73,7 @@ $btn-width: 60px;
     }
 }
 
-.slick-prev {
+#home .slick-prev {
     left: calc($btn-width / -2);
 
     svg {
