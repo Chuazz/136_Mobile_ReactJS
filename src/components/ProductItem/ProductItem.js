@@ -13,7 +13,7 @@ import Name from './Name';
 import Option from './Option';
 
 // Utils
-import { AddCommasForThounsand } from '@/utils';
+import Price from '../Price/Price';
 
 const ProductItem = ({ className, product }) => {
     const [currCapacity, setCurrCapacity] = useState(product.capacities[0]);
@@ -52,16 +52,13 @@ const ProductItem = ({ className, product }) => {
                         />
                     </div>
 
-                    <p className="row ali-center jus-end">
-                        {currCapacity.discount && (
-                            <Link to={currColor.linkTo} className={clsx(styles.discount)}>
-                                {AddCommasForThounsand(currCapacity.discount)}
-                            </Link>
-                        )}
-                        <Link to={currColor.linkTo} className={clsx(styles.price)}>
-                            {AddCommasForThounsand(currCapacity.price)}
-                        </Link>
-                    </p>
+                    <Price
+                        className={"jus-end"}
+                        disCount={currCapacity.discount}
+                        price={currCapacity.price}
+                        disCountClass={clsx(styles.discount)}
+                        priceClass={clsx(styles.price)}
+                    />
                 </div>
             </div>
         </div>
