@@ -10,25 +10,20 @@ import styles from './ProductItem.module.scss';
 // Component
 import Image from '../Image';
 import Name from './Name';
-import Option from './Option';
+import Option from '../CapacityColorOption';
 
 // Utils
 import Price from '../Price/Price';
 
 const ProductItem = ({ className, product }) => {
-    const [currCapacity, setCurrCapacity] = useState(product.capacities[0]);
-    const [currColors, setCurrColors] = useState(product.capacities.find((t) => t.value === currCapacity.value).colors);
-    const [currColor, setCurrColor] = useState(currColors[0]);
-    const [currImg, setCurrImg] = useState(() => {
-        const [currImgs] = product.sharedImgs.filter((sharedImg) => sharedImg.colorValue === currColor.value);
+    const capacities = product.capacities;
+    const [currCapacity, setCurrCapacity] = useState(capacities[0]);
+    const [currColor, setCurrColor] = useState(capacities[0].colors[0]);
+    const [currImg, setCurrImg] = useState(product.sharedImgs[0].imgPaths[0]);
 
-        return currImgs.imgPaths[0];
-    });
-
-    const hanldeSetCurrImg = (colorValue) => {
-        const [currImgs] = product.sharedImgs.filter((sharedImg) => sharedImg.colorValue === colorValue);
-
-        setCurrImg(currImgs.imgPaths[0]);
+    const handleSetCurrImg = (color) => {
+        const foundImg = product.sharedImgs.find((t) => t.colorValue === color.value).imgPaths[0];
+        setCurrImg(foundImg);
     };
 
     return (
@@ -42,18 +37,11 @@ const ProductItem = ({ className, product }) => {
                     <Name className={styles.name} name={product.name} linkTo={currColor.linkTo} />
 
                     <div className={clsx(styles.options, 'row ali-center')}>
-                        <Option
-                            capacities={product.capacities}
-                            currColors={currColors}
-                            setCurrCapacity={(capacity) => setCurrCapacity(capacity)}
-                            setCurrColors={(colors) => setCurrColors(colors)}
-                            setCurrColor={(color) => setCurrColor(color)}
-                            setCurrImg={(imgPath) => hanldeSetCurrImg(imgPath)}
-                        />
+                        <Option product={product} ColorOptionClick={(selected) => handleSetCurrImg(selected)} />
                     </div>
 
                     <Price
-                        className={"jus-end"}
+                        className={'jus-end'}
                         disCount={currCapacity.discount}
                         price={currCapacity.price}
                         disCountClass={clsx(styles.discount)}
