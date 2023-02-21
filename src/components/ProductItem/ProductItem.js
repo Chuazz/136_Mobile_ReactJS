@@ -40,6 +40,7 @@ const ProductItem = ({ className, product }) => {
                     <div className={clsx(styles.options, 'row ali-center')}>
                         <Option
                             product={product}
+                            CapacityClassName="ma-b-12"
                             ColorOptionClick={(selected) => handleSetCurrImg(selected)}
                             CapcityOptionClick={(selected) => setCurrCapacity(selected)}
                         />

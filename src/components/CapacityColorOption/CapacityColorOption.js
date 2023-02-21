@@ -9,13 +9,20 @@ import DropDown from '@/components/DropDown';
 // Style
 import styles from './CapacityColorOption.module.scss';
 
-const CapacityColorOption = ({ className, product, CapcityOptionClick = () => {}, ColorOptionClick = () => {} }) => {
+const CapacityColorOption = ({
+    className,
+    CapacityClassName,
+    ColorClassName,
+    product,
+    CapcityOptionClick = () => {},
+    ColorOptionClick = () => {},
+}) => {
     const capacities = product.capacities;
     const [currColors, setCurrColors] = useState(capacities[0].colors);
 
     return (
         <div className={className}>
-            <div className="row ali-center ma-b-12">
+            <div className={clsx('row ali-center', CapacityClassName)}>
                 <p className={clsx(styles.title)}>Bộ nhớ:</p>
                 <DropDown
                     options={capacities}
@@ -26,7 +33,7 @@ const CapacityColorOption = ({ className, product, CapcityOptionClick = () => {}
                 />
             </div>
 
-            <div className="row ali-center">
+            <div className={clsx('row ali-center', ColorClassName)}>
                 <p className={clsx(styles.title)}>Màu sắc:</p>
                 <DropDown
                     options={currColors}
@@ -46,6 +53,8 @@ const CapacityColorOption = ({ className, product, CapcityOptionClick = () => {}
 CapacityColorOption.propTypes = {
     product: propTypes.object.isRequired,
     className: propTypes.string,
+    CapacityClassName: propTypes.string,
+    ColorClassName: propTypes.string,
     CapacityColorOption: propTypes.func,
     ColorOptionClick: propTypes.func,
 };
