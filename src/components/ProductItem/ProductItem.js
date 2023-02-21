@@ -17,8 +17,9 @@ import Price from '../Price/Price';
 
 const ProductItem = ({ className, product }) => {
     const capacities = product.capacities;
+    const currColor = capacities[0].colors[0];
+    
     const [currCapacity, setCurrCapacity] = useState(capacities[0]);
-    const [currColor, setCurrColor] = useState(capacities[0].colors[0]);
     const [currImg, setCurrImg] = useState(product.sharedImgs[0].imgPaths[0]);
 
     const handleSetCurrImg = (color) => {
@@ -37,7 +38,11 @@ const ProductItem = ({ className, product }) => {
                     <Name className={styles.name} name={product.name} linkTo={currColor.linkTo} />
 
                     <div className={clsx(styles.options, 'row ali-center')}>
-                        <Option product={product} ColorOptionClick={(selected) => handleSetCurrImg(selected)} />
+                        <Option
+                            product={product}
+                            ColorOptionClick={(selected) => handleSetCurrImg(selected)}
+                            CapcityOptionClick={(selected) => setCurrCapacity(selected)}
+                        />
                     </div>
 
                     <Price
