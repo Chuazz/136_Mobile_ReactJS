@@ -1,7 +1,11 @@
+import { i14prm } from '@/assets/images';
+
 const products = [
     {
         id: '14prm',
         name: 'iPhone 14 Pro Max',
+        description:
+            'Bắt trọn chi tiết ấn tượng với Camera Chính 48MP. Trải nghiệm iPhone theo cách hoàn toàn mới với Dynamic Island và màn hình Luôn Bật. Công nghệ an toàn quan trọng – Phát Hiện Va Chạm thay bạn gọi trợ giúp khi cần thiết.',
 
         capacities: [
             {
@@ -36,12 +40,12 @@ const products = [
                 price: 31690000,
                 colors: [
                     {
-                        linkTo: '14prm?v=256gb&c=594f63',
+                        linkTo: '14prm?v=256GB&c=594f63',
                         label: 'Tím',
                         value: '#594f63',
                     },
                     {
-                        linkTo: '14prm?v=128GB&c=f4e8ce',
+                        linkTo: '14prm?v=256GB&c=f4e8ce',
                         label: 'Vàng',
                         value: '#f4e8ce',
                     },
@@ -49,61 +53,61 @@ const products = [
             },
         ],
 
+        promotions: [],
+
+        parameters: [],
+
         sharedImgs: [
             {
                 colorValue: '#594f63',
                 imgPaths: [
-                    'https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_100/https://cdn.tgdd.vn/Products/Images/42/251192/s16/iphone-14-pro-max-tim-650x650.png',
-                    'https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_100/https://cdn.tgdd.vn/Products/Images/42/251192/s16/iphone_14_pro_max_pdp_position-1_deep_purple_color-0-650x650.jpg',
-                    'https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_100/https://cdn.tgdd.vn/Products/Images/42/251192/s16/iphone_14_pro_max_pdp_position-1_deep_purple_color-1-650x650.jpg',
-                    'https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_100/https://cdn.tgdd.vn/Products/Images/42/251192/s16/iphone_14_pro_max_pdp_position-2_design-2-3-650x650.jpg',
-                    'https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_100/https://cdn.tgdd.vn/Products/Images/42/251192/s16/iphone_14_pro_max_pdp_position-3_camera-3-3-650x650.jpg',
-                    'https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_100/https://cdn.tgdd.vn/Products/Images/42/251192/s16/iphone_14_pro_max_pdp_position-4_design_detail-4-3-650x650.jpg',
-
-                    // 'https://fdn.gsmarena.com/imgroot/reviews/22/apple-iphone-14-pro-max/lifestyle/-1024w2/gsmarena_004.jpg',
-                    // 'https://fdn.gsmarena.com/imgroot/reviews/22/apple-iphone-14-pro-max/lifestyle/-1024w2/gsmarena_005.jpg',
-                    // 'https://fdn.gsmarena.com/imgroot/reviews/22/apple-iphone-14-pro-max/lifestyle/-1024w2/gsmarena_006.jpg',
-                    // 'https://fdn.gsmarena.com/imgroot/reviews/22/apple-iphone-14-pro-max/lifestyle/-1024w2/gsmarena_007.jpg',
-                    // 'https://fdn.gsmarena.com/imgroot/reviews/22/apple-iphone-14-pro-max/lifestyle/-1024w2/gsmarena_010.jpg',
-                    // 'https://fdn.gsmarena.com/imgroot/reviews/22/apple-iphone-14-pro-max/lifestyle/-1024w2/gsmarena_011.jpg',
+                    i14prm.purple.i1,
+                    i14prm.purple.i2,
+                    i14prm.purple.i3,
+                    i14prm.purple.i5,
+                    i14prm.purple.i6,
+                    i14prm.purple.i7,
                 ],
             },
             {
                 colorValue: '#f4e8ce',
                 imgPaths: [
-                    'https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_100/https://cdn.tgdd.vn/Products/Images/42/251192/s16/iphone-14-pro-max-vang-650x650.png',
-                    'https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_100/https://cdn.tgdd.vn/Products/Images/42/251192/s16/phone_14_pro_max_pdp_position-1_gold_color-0-650x650.jpg',
-                    'https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_100/https://cdn.tgdd.vn/Products/Images/42/251192/s16/phone_14_pro_max_pdp_position-1_gold_color-1-650x650.jpg',
-                    'https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_100/https://cdn.tgdd.vn/Products/Images/42/251192/s16/iphone_14_pro_max_pdp_position-2_design-2-2-650x650.jpg',
-                    'https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_100/https://cdn.tgdd.vn/Products/Images/42/251192/s16/iphone_14_pro_max_pdp_position-3_camera-3-2-650x650.jpg',
-                    'https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_100/https://cdn.tgdd.vn/Products/Images/42/251192/s16/iphone_14_pro_max_pdp_position-4_design_detail-4-2-650x650.jpg',
+                    i14prm.yellow.i1,
+                    i14prm.yellow.i2,
+                    i14prm.yellow.i3,
+                    i14prm.yellow.i4,
+                    i14prm.yellow.i5,
+                    i14prm.yellow.i6,
+                    i14prm.yellow.i7,
                 ],
             },
             {
                 colorValue: '#403e3d',
                 imgPaths: [
-                    'https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_100/https://cdn.tgdd.vn/Products/Images/42/251192/s16/iphone-14-pro-max-den-650x650.png',
-                    'https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_100/https://cdn.tgdd.vn/Products/Images/42/251192/s16/iphone_14_pro_max_pdp_position-1_space_black_color-0-650x650.jpg',
-                    'https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_100/https://cdn.tgdd.vn/Products/Images/42/251192/s16/iphone_14_pro_max_pdp_position-1_space_black_color-1-650x650.jpg',
-                    'https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_100/https://cdn.tgdd.vn/Products/Images/42/251192/s16/iphone_14_pro_max_pdp_position-2_design-2-650x650.jpg',
-                    'https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_100/https://cdn.tgdd.vn/Products/Images/42/251192/s16/iphone_14_pro_max_pdp_position-3_camera-3-650x650.jpg',
-                    'https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_100/https://cdn.tgdd.vn/Products/Images/42/251192/s16/iphone_14_pro_max_pdp_position-4_design_detail-4-650x650.jpg',
+                    i14prm.black.i1,
+                    i14prm.black.i2,
+                    i14prm.black.i3,
+                    i14prm.black.i4,
+                    i14prm.black.i5,
+                    i14prm.black.i6,
+                    i14prm.black.i7,
                 ],
             },
             {
                 colorValue: '#f0f2f2',
                 imgPaths: [
-                    'https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_100/https://cdn.tgdd.vn/Products/Images/42/251192/s16/iphone-14-pro-max-trang-650x650.png',
-                    'https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_100/https://cdn.tgdd.vn/Products/Images/42/251192/s16/iphone_14_pro_max_pdp_position-1_silver_color-0-650x650.jpg',
-                    'https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_100/https://cdn.tgdd.vn/Products/Images/42/251192/s16/iphone_14_pro_max_pdp_position-1_silver_color-1-650x650.jpg',
-                    'https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_100/https://cdn.tgdd.vn/Products/Images/42/251192/s16/iphone_14_pro_max_pdp_position-2_design-2-1-650x650.jpg',
-                    'https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_100/https://cdn.tgdd.vn/Products/Images/42/251192/s16/iphone_14_pro_max_pdp_position-3_camera-3-1-650x650.jpg',
-                    'https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_100/https://cdn.tgdd.vn/Products/Images/42/251192/s16/iphone_14_pro_max_pdp_position-4_design_detail-4-1-650x650.jpg',
+                    i14prm.gray.i1,
+                    i14prm.gray.i2,
+                    i14prm.gray.i3,
+                    i14prm.gray.i4,
+                    i14prm.gray.i5,
+                    i14prm.gray.i6,
+                    i14prm.gray.i7,
                 ],
             },
             {
                 colorValue: 'all',
-                imgPaths: [],
+                imgPaths: [i14prm.i1, i14prm.i2, i14prm.i3, i14prm.i4],
             },
         ],
     },

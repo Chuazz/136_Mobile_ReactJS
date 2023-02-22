@@ -1,0 +1,17 @@
+.imgs {
+    .slick-slide {
+        transform: scale(0.5);
+        opacity: 0.5;
+        transition: all 0.3s linear;
+    }
+
+    .slick-slide.slick-active {
+        transform: scale(0.7);
+        opacity: 0.6;
+    }
+
+    .slick-slide.slick-active.slick-current {
+        transform: scale(1);
+        opacity: 1;
+    }
+}

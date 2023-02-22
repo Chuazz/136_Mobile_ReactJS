@@ -1,0 +1,51 @@
+.container {
+    margin-left: 40px;
+}
+
+.tabs {
+    margin-bottom: 32px;
+}
+
+.tab {
+    font-size: 1.8rem;
+    margin-right: 24px;
+    cursor: pointer;
+    padding-bottom: 4px;
+    position: relative;
+    opacity: 0.7;
+    transition: all 0.3s linear;
+}
+
+.tab:hover {
+    .border {
+        opacity: 0.7;
+        width: 100%;
+    }
+}
+
+.border {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 2px;
+    background: var(--black-1);
+    border-radius: 50px;
+    width: 0;
+    opacity: 0;
+    transition: all 0.3s linear;
+}
+
+.activeTab {
+    opacity: 1;
+    outline: none;
+
+    .border {
+        opacity: 1;
+        width: 100%;
+    }
+}
+
+.tabContent{
+    margin-top: 24px;
+}
