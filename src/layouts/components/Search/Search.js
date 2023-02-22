@@ -1,6 +1,6 @@
 // Framework
 import clsx from 'clsx';
-import { memo, useEffect, useState } from 'react';
+import { memo, useEffect, useRef, useState } from 'react';
 
 // Component
 import Box from '@/components/Box';
@@ -25,6 +25,9 @@ const Search = () => {
         visible: content && visible ? true : false,
     };
 
+    const inputRef = useRef();
+    const resultRef = useRef();
+
     const tippyRender = (
         <div>
             <div className="row ali-center ma-b-16">
@@ -40,22 +43,16 @@ const Search = () => {
                 <BoxItem data={testData} />
                 <BoxItem data={testData} />
                 <BoxItem data={testData} />
-                <BoxItem data={testData} />
-                <BoxItem data={testData} />
-                <BoxItem data={testData} />
-                <BoxItem data={testData} />
-                <BoxItem data={testData} />
-                <BoxItem data={testData} />
-                <BoxItem data={testData} />
-                <BoxItem data={testData} />
-                <BoxItem data={testData} />
             </Box>
         </div>
     );
 
     useEffect(() => {
         const onClick = (e) => {
-            if (!e.target.closest(`.${styles.result}`) && !e.target.closest(`.${styles.content}`)) {
+            const resultClass = `.${resultRef.current.className}`;
+            const inputClass = `.${inputRef.current.className}`;
+
+            if (!e.target.closest(resultClass) && !e.target.closest(inputClass)) {
                 setVisible(false);
             }
         };
@@ -79,20 +76,24 @@ const Search = () => {
     return (
         <div>
             <Popup
-                className={clsx(styles.container, 'row ali-center relative')}
+                className={clsx(styles.container)}
                 renderClass={clsx(styles.result)}
                 tippyRender={tippyRender}
                 tippyProp={tippyProp}
+                ref={resultRef}
             >
-                <MagnifyingGlass className={clsx(styles.icon)} />
+                <div className="row ali-center">
+                    <MagnifyingGlass className={clsx(styles.icon)} />
 
-                <input
-                    className={clsx(styles.content)}
-                    placeholder="Tìm kiếm điện thoại, phụ kiện"
-                    spellCheck={false}
-                    onInput={onInput}
-                    onClick={onClick}
-                />
+                    <input
+                        ref={inputRef}
+                        className={clsx(styles.content)}
+                        placeholder="Tìm kiếm điện thoại, phụ kiện"
+                        spellCheck={false}
+                        onInput={onInput}
+                        onClick={onClick}
+                    />
+                </div>
             </Popup>
         </div>
     );
