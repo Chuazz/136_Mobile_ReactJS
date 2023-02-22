@@ -1,3 +1,2 @@
-import { default as AddCommasForThounsand } from './AddCommasForThousand';
-
-export { AddCommasForThounsand };
+export { default as addCommasForThounsand } from './addCommasForThousand';
+export { default as addSlashForSpecialChars } from './addSlashForSpecialChars';

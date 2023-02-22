@@ -10,6 +10,7 @@ import { MagnifyingGlass } from '@/components/SvgIcon/SvgIcon';
 
 // Style
 import styles from './Search.module.scss';
+import { addSlashForSpecialChars } from '@/utils';
 
 const testData = {
     imgPath:
@@ -24,9 +25,6 @@ const Search = () => {
     const tippyProp = {
         visible: content && visible ? true : false,
     };
-
-    const inputRef = useRef();
-    const resultRef = useRef();
 
     const tippyRender = (
         <div>
@@ -49,10 +47,10 @@ const Search = () => {
 
     useEffect(() => {
         const onClick = (e) => {
-            const resultClass = `.${resultRef.current.className}`;
-            const inputClass = `.${inputRef.current.className}`;
-
-            if (!e.target.closest(resultClass) && !e.target.closest(inputClass)) {
+            if (
+                !e.target.closest(addSlashForSpecialChars(`.${styles.result}`)) &&
+                !e.target.closest(addSlashForSpecialChars(`.${styles.content}`))
+            ) {
                 setVisible(false);
             }
         };
@@ -80,13 +78,11 @@ const Search = () => {
                 renderClass={clsx(styles.result)}
                 tippyRender={tippyRender}
                 tippyProp={tippyProp}
-                ref={resultRef}
             >
                 <div className="row ali-center">
                     <MagnifyingGlass className={clsx(styles.icon)} />
 
                     <input
-                        ref={inputRef}
                         className={clsx(styles.content)}
                         placeholder="Tìm kiếm điện thoại, phụ kiện"
                         spellCheck={false}
