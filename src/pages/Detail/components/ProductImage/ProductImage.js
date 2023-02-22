@@ -27,6 +27,7 @@ const ProductImage = () => {
         centerMode: true,
         infinite: true,
         centerPadding: '60px',
+        swipeToSlide: true,
         slidesToShow: 3,
         autoplay: true,
         speed: 500,
@@ -41,7 +42,7 @@ const ProductImage = () => {
 
     return (
         <div className={clsx(styles.container)}>
-            <Slider asNavFor={navs.nav2} ref={(slider) => (slider1 = slider)} arrows={false}>
+            <Slider asNavFor={navs.nav2} ref={(slider) => (slider1 = slider)} arrows={false} className="img">
                 {currImgPaths.map((image) => (
                     <div key={image}>
                         <Image src={image} className={clsx(styles.img)} />

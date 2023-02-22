@@ -1,16 +1,20 @@
 // Framework
-import CapacityColorOption from '@/components/CapacityColorOption';
-import Price from '@/components/Price/Price';
 import clsx from 'clsx';
 import { useContext } from 'react';
 import { DetailContext } from '../../contexts';
 
+// Framework
+import Price from '@/components/Price/Price';
+import Option from './components/Option';
+
 // Style
 import styles from './General.module.scss';
+import Promotion from './components/Promotion/';
+import ProductPolicy from './components/ProductPolicy';
 
 function GeneralInfo() {
     const context = useContext(DetailContext);
-    const { product, currCapacity, currColor, setCurrCapacity, setCurrColor, setcurrImgPaths, getImgs } = context;
+    const { product, currCapacity } = context;
 
     return (
         <div className={clsx(styles.container)}>
@@ -28,21 +32,11 @@ function GeneralInfo() {
 
             <p className={clsx(styles.description)}>{product.description}</p>
 
-            <CapacityColorOption
-                product={product}
-                className={clsx(styles.options, 'row ali-center ma-t-24')}
-                CapacityClassName={clsx(styles.capacity)}
-                CapacitySeletedValue={currCapacity}
-                ColorSeletedValue={currColor}
-                CapcityOptionClick={(selected) => setCurrCapacity(selected)}
-                ColorOptionClick={(selected) => {
-                    setCurrColor(selected);
-                    setcurrImgPaths(getImgs(selected));
-                }}
-                ColorOptionChange={(options, optionChange) => {
-                    setcurrImgPaths(getImgs(optionChange));
-                }}
-            />
+            <Option />
+
+            <Promotion />
+
+            <ProductPolicy />
         </div>
     );
 }

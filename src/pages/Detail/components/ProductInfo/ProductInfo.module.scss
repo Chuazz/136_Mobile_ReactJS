@@ -1,9 +1,9 @@
 .container {
-    margin-left: 40px;
+    margin-left: 32px;
 }
 
 .tabs {
-    margin-bottom: 32px;
+    margin-bottom: 22px;
 }
 
 .tab {
@@ -46,6 +46,29 @@
     }
 }
 
-.tabContent{
-    margin-top: 24px;
+.tabContent {
+    padding-right: 12px;
+    max-height: calc(100vh - 230px);
+    min-height: calc(100vh - 230px);
+    overflow: auto;
+}
+
+.action {
+    border-radius: 9999px;
+    box-shadow: 0 0 5px rgba(255, 0, 0, 32%);
+    margin-left: 16px;
+    padding-left: 16px;
+    padding-right: 16px;
+
+    &:hover {
+        background: rgb(238, 78, 52);
+        color: #fcedda;
+        box-shadow: 0 0 10px rgba(238, 78, 52);
+    }
+}
+
+.actionContent{
+    font-size: 1.35rem;
+    font-weight: 500;
+    padding-right: 12px;
 }

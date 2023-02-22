@@ -12,6 +12,10 @@ const products = [
                 value: '128GB',
                 price: 29190000,
                 discount: 34490000,
+                promotion: {
+                    time: '23:59 | 24/02',
+                    packages: ['discount1M', 'warranty12ms', 'insurance6msdrop'],
+                },
                 colors: [
                     {
                         linkTo: '14prm?v=128GB&c=594f63',
@@ -38,6 +42,10 @@ const products = [
             {
                 value: '256GB',
                 price: 31690000,
+                promotion: {
+                    time: '23:59 | 24/02',
+                    packages: ['discount1M', 'insurance6msdrop'],
+                },
                 colors: [
                     {
                         linkTo: '14prm?v=256GB&c=594f63',
@@ -53,7 +61,20 @@ const products = [
             },
         ],
 
-        promotions: [],
+        packages: [
+            {
+                id: 'discount1M',
+                value: 'Giảm giá 1.000.000đ',
+            },
+            {
+                id: 'warranty12ms',
+                value: 'Bảo hành 24 tháng (12 tháng chính hãng + 12 tháng bảo hành mở rộng) (Trị giá đến 2 triệu)',
+            },
+            {
+                id: 'insurance6msdrop',
+                value: 'Tặng gói bảo hiểm rơi vỡ 6 tháng (Trị giá đến 2 triệu)',
+            },
+        ],
 
         parameters: [],
 

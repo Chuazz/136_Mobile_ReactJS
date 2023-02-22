@@ -1,0 +1,24 @@
+.container{
+    margin-top: 16px;
+
+    .itemContent{
+        margin-left: 8px;
+    }
+}
+
+.item{
+    font-weight: 500;
+    padding-left: 0;
+    padding-right: 0;
+    cursor: pointer;
+
+    &:hover{
+        background: transparent;
+    }
+}
+
+.icon{
+    svg{
+        font-size: 2.2rem;
+    }
+}

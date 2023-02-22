@@ -1,8 +1,9 @@
-.imgs {
+#detail .imgs {
     .slick-slide {
         transform: scale(0.5);
         opacity: 0.5;
         transition: all 0.3s linear;
+        cursor: pointer;
     }
 
     .slick-slide.slick-active {
@@ -13,5 +14,11 @@
     .slick-slide.slick-active.slick-current {
         transform: scale(1);
         opacity: 1;
+    }
+}
+
+#detail .img {
+    .slick-slide {
+        cursor: grab;
     }
 }
