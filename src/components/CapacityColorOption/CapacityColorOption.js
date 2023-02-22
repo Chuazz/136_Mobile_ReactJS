@@ -12,10 +12,13 @@ import styles from './CapacityColorOption.module.scss';
 const CapacityColorOption = ({
     className,
     CapacityClassName,
+    CapacitySeletedValue,
     ColorClassName,
+    ColorSeletedValue,
     product,
     CapcityOptionClick = () => {},
     ColorOptionClick = () => {},
+    ColorOptionChange = () => {},
 }) => {
     const capacities = product.capacities;
     const [currColors, setCurrColors] = useState(capacities[0].colors);
@@ -26,6 +29,7 @@ const CapacityColorOption = ({
                 <p className={clsx(styles.title)}>Bộ nhớ:</p>
                 <DropDown
                     options={capacities}
+                    selectedValue={CapacitySeletedValue}
                     onOptionClick={(selected) => {
                         setCurrColors(capacities.find((t) => t.value === selected.value).colors);
                         CapcityOptionClick(selected);
@@ -37,12 +41,13 @@ const CapacityColorOption = ({
                 <p className={clsx(styles.title)}>Màu sắc:</p>
                 <DropDown
                     options={currColors}
+                    selectedValue={ColorSeletedValue}
                     isColorAfter
                     onOptionClick={(selected) => {
                         ColorOptionClick(selected);
                     }}
                     onChange={(options, optionChange) => {
-                        ColorOptionClick(optionChange);
+                        ColorOptionChange(options, optionChange);
                     }}
                 />
             </div>
@@ -52,11 +57,14 @@ const CapacityColorOption = ({
 
 CapacityColorOption.propTypes = {
     product: propTypes.object.isRequired,
+    ColorSeletedValue: propTypes.object,
+    CapacitySeletedValue: propTypes.object,
     className: propTypes.string,
     CapacityClassName: propTypes.string,
     ColorClassName: propTypes.string,
-    CapacityColorOption: propTypes.func,
+    CapcityOptionClick: propTypes.func,
     ColorOptionClick: propTypes.func,
+    ColorOptionChange: propTypes.func,
 };
 
 export default memo(CapacityColorOption);

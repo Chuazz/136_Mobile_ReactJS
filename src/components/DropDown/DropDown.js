@@ -60,12 +60,19 @@ const DropDown = ({
     };
 
     const onOptionsChange = () => {
-        if (options !== currOptions) {
-            if (options.filter((option) => option.value === currOption.value).length <= 0) {
-                setcurrOption(options[0]);
-                onChange(options, options[0]);
-            }
+        let optionChange;
+
+        if (options.find((option) => option.value === currOption.value)) {
             setcurrOptions(options);
+        } else {
+            optionChange = options[0];
+            setcurrOption(options[0]);
+        }
+
+        if (options === currOptions) {
+            onChange(options, currOption);
+        } else {
+            onChange(options, optionChange || options[0]);
         }
     };
 

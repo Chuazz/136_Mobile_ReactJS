@@ -17,8 +17,8 @@ import Price from '../Price/Price';
 
 const ProductItem = ({ className, product }) => {
     const capacities = product.capacities;
-    const currColor = capacities[0].colors[0];
-    
+    const [currColor, setCurrColor] = useState(capacities[0].colors[0]);
+
     const [currCapacity, setCurrCapacity] = useState(capacities[0]);
     const [currImg, setCurrImg] = useState(product.sharedImgs[0].imgPaths[0]);
 
@@ -41,8 +41,15 @@ const ProductItem = ({ className, product }) => {
                         <Option
                             product={product}
                             CapacityClassName="ma-b-12"
-                            ColorOptionClick={(selected) => handleSetCurrImg(selected)}
                             CapcityOptionClick={(selected) => setCurrCapacity(selected)}
+                            ColorOptionClick={(selected) => {
+                                handleSetCurrImg(selected);
+                                setCurrColor(selected);
+                            }}
+                            ColorOptionChange={(options, optionChange) => {
+                                setCurrColor(optionChange);
+                                handleSetCurrImg(optionChange);
+                            }}
                         />
                     </div>
 
