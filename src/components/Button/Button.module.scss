@@ -3,15 +3,7 @@
     justify-content: center;
     align-items: center;
     transition: all 0.2s linear;
-
-    & + .circle {
-        margin-left: 8px;
-    }
-
-    & + .rectangle {
-        margin-left: 8px;
-    }
-
+    
     svg {
         font-size: 1.8rem;
     }
@@ -40,7 +32,6 @@
 
 .text {
     font-size: 1.5rem;
-    font-weight: 400;
 
     & ~ .rightIcon {
         margin-left: 4px;
