@@ -4,16 +4,17 @@ import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 import { BsFillBagPlusFill, BsFillBagCheckFill } from 'react-icons/bs';
 
 // Component
-import GeneralInfo from '../GeneralInfo';
 import Button from '@/components/Button';
+import GeneralInfo from './components/GeneralInfo';
 
 // Style
 import styles from './ProductInfo.module.scss';
 
 // Data
 import { detailTabs } from '@/data';
+import Parameter from './components/Parameter';
 
-function ProductInfo({ info, capacity, color }) {
+function ProductInfo() {
     return (
         <div className={clsx(styles.container)}>
             <Tabs selectedTabClassName={clsx(styles.activeTab)}>
@@ -29,10 +30,12 @@ function ProductInfo({ info, capacity, color }) {
 
                 <div className={styles.tabContent}>
                     <TabPanel>
-                        <GeneralInfo info={info} capacity={capacity} color={color} />
+                        <GeneralInfo />
                     </TabPanel>
 
-                    <TabPanel>Thông Số</TabPanel>
+                    <TabPanel>
+                        <Parameter />
+                    </TabPanel>
 
                     <TabPanel>Bình luận</TabPanel>
                 </div>

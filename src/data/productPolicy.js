@@ -1,6 +1,5 @@
-import { BsBoxSeam, BsTruck, BsTelephone } from 'react-icons/bs';
-import { TfiLoop } from 'react-icons/tfi';
-import { HiOutlineShieldCheck } from 'react-icons/hi';
+import { BsBoxSeam, BsTruck, BsShieldCheck } from 'react-icons/bs';
+import { TfiLoop, TfiHeadphoneAlt } from 'react-icons/tfi';
 
 const productPolicys = [
     {
@@ -15,7 +14,7 @@ const productPolicys = [
     },
     {
         id: 5,
-        icon: <BsTelephone />,
+        icon: <TfiHeadphoneAlt />,
         value: 'Tổng đài: 1900.9696.42 (9h00 - 21h00 mỗi ngày)',
     },
     {
@@ -25,7 +24,7 @@ const productPolicys = [
     },
     {
         id: 3,
-        icon: <HiOutlineShieldCheck />,
+        icon: <BsShieldCheck />,
         value: 'Bảo hành chính hãng 1 năm',
     },
 ];

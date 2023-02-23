@@ -1,11 +1,11 @@
 // Framework
 import clsx from 'clsx';
 import { useContext } from 'react';
-import { DetailContext } from '../../contexts';
 
 // Framework
 import Price from '@/components/Price/Price';
 import Option from './components/Option';
+import { DetailContext } from '@/pages/Detail/contexts';
 
 // Style
 import styles from './General.module.scss';

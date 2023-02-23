@@ -76,7 +76,55 @@ const products = [
             },
         ],
 
-        parameters: [],
+        parameters: [
+            {
+                id: 'screen',
+                name: 'Màn hình',
+                values: [
+                    {
+                        name: 'Công nghệ màn hình',
+                        values: ['OLED'],
+                    },
+                    {
+                        name: 'Độ phân giải',
+                        values: ['2796 x 1290 Pixels'],
+                    },
+                    {
+                        name: 'Màn hình rộng',
+                        values: ['6.7" - Tần số quét 120 Hz'],
+                    },
+                    {
+                        name: 'Độ sáng tối đa',
+                        values: ['2000 nits'],
+                    },
+                    {
+                        name: 'Mặt kính cảm ứng',
+                        values: ['Kính cường lực Ceramic Shield'],
+                    },
+                ],
+            },
+            {
+                id: 'backcamera',
+                name: 'Camera sau',
+                values: [
+                    {
+                        name: 'Độ phân giải',
+                        values: ['Chính 48 MP & Phụ 12 MP, 12 MP'],
+                    },
+                    {
+                        name: 'Quay phim',
+                        values: [
+                            '4K 2160p@24fps',
+                            '4K 2160p@30fps',
+                            '4K 2160p@60fps',
+                            'FullHD 1080p@30fps',
+                            'FullHD 1080p@60fps',
+                            'HD 720p@30fps',
+                        ],
+                    },
+                ],
+            },
+        ],
 
         sharedImgs: [
             {
