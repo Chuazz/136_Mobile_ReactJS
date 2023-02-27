@@ -1,6 +1,6 @@
 // Framework
 import clsx from 'clsx';
-import { memo, useEffect, useRef, useState } from 'react';
+import { memo, useEffect, useState } from 'react';
 
 // Component
 import Box from '@/components/Box';

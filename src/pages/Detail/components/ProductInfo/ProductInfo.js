@@ -6,13 +6,14 @@ import { BsFillBagPlusFill, BsFillBagCheckFill } from 'react-icons/bs';
 // Component
 import Button from '@/components/Button';
 import GeneralInfo from './components/GeneralInfo';
+import Parameter from './components/Parameter';
 
 // Style
 import styles from './ProductInfo.module.scss';
+import Comment from './components/Comment';
 
 // Data
 import { detailTabs } from '@/data';
-import Parameter from './components/Parameter';
 
 function ProductInfo() {
     return (
@@ -36,8 +37,9 @@ function ProductInfo() {
                     <TabPanel>
                         <Parameter />
                     </TabPanel>
-
-                    <TabPanel>Bình luận</TabPanel>
+                    <TabPanel>
+                        <Comment />
+                    </TabPanel>
                 </div>
             </Tabs>
 

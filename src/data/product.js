@@ -126,6 +126,31 @@ const products = [
             },
         ],
 
+        comments: [
+            {
+                id: 1,
+                userName: 'Ngô Văn Sơn',
+                content: 'Sản phẩm này còn hàng tại thành phố Hồ Chí Minh không shop ????',
+                time: "1 ngày",
+                likes: 2
+            },
+            {
+                id: 2,
+                userName: 'Ngô Văn Trường',
+                content: 'Thủ tục trả góp của sản phẩm này như nào vậy shop ?',
+                time: "1 ngày",
+                likes: 1,
+            },
+            {
+                id: 3,
+                replyId: 1,
+                userName: "Quản trị viên",
+                content: "Chào anh\nSản phẩm hiện đang có tại các cửa hàng của 136 Mobile trên toàn quốc\nThông tin đến anh",
+                time: "1 ngày",
+                likes: 4,
+            }
+        ],
+
         sharedImgs: [
             {
                 colorValue: '#594f63',

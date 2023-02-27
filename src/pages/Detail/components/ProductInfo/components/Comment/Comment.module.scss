@@ -1,0 +1,106 @@
+.container {
+    .errorActive {
+        border-color: red;
+    }
+}
+
+.content {
+    width: 100%;
+    border: none;
+    font-size: 1.5rem;
+    line-height: 1.7;
+    max-height: 110px;
+}
+
+.contentBorder {
+    position: absolute;
+    display: block;
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: #dcdbdb;
+    right: 0;
+    bottom: 0;
+    border-bottom-right-radius: 2px;
+
+    &::after {
+        position: absolute;
+        content: '';
+        width: 12px;
+        height: 10px;
+        background: #fff;
+        right: 0;
+        bottom: 4px;
+        border-bottom-right-radius: 2px;
+    }
+
+    &::before {
+        position: absolute;
+        transition: all 0.3s linear;
+        content: '';
+        width: 0;
+        height: 100%;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        background: transparent;
+    }
+}
+
+.writting .contentBorder::before {
+    width: 100%;
+    background: #1623e4;
+}
+
+.error {
+    .contentBorder {
+        background: red;
+    }
+
+    .contentBorder::before {
+        background: transparent;
+    }
+}
+
+.errorMess {
+    color: red;
+    font-size: 1.3rem;
+}
+
+.collapse {
+    margin-top: 12px;
+}
+
+.uploadBtn {
+    background: #2851e4d8;
+    color: #fff;
+    border-radius: 9000px;
+    padding: 8px 18px;
+
+    &:hover {
+        background: #2852e4;
+    }
+}
+
+.cancel {
+    margin-right: 12px;
+    background: transparent;
+    color: #292929;
+
+    &:hover {
+        background: #3b3b3b;
+        color: #fff;
+    }
+}
+
+.userIcon {
+    background: transparent;
+    height: 45px;
+    width: 45px;
+    box-shadow: inset 0 0 10px rgba(0, 102, 255, 65%);
+    margin-right: 12px;
+
+    svg {
+        font-size: 1.7rem;
+    }
+}

@@ -17,6 +17,7 @@ import { homeBanners as banners } from '@/data';
 
 function Banner({ className }) {
     const settings = {
+        // eslint-disable-next-line jsx-a11y/anchor-has-content, jsx-a11y/anchor-is-valid
         customPaging: () => <a className={clsx(styles.dot)}></a>,
         dots: true,
         infinite: true,

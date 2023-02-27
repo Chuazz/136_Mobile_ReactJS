@@ -1,7 +1,7 @@
 // Component
+import { DetailProvider } from '@/contexts';
 import ProductImage from './components/ProductImage';
 import ProductInfo from './components/ProductInfo';
-import { DetailProvider } from './contexts';
 
 const Detail = () => {
     return (

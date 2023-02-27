@@ -78,6 +78,7 @@ const DropDown = ({
 
     useEffect(() => {
         onOptionsChange();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [options]);
 
     const tippyRender = options.map((option) => (

@@ -2,6 +2,7 @@
 import Slider from 'react-slick';
 import clsx from 'clsx';
 import { useContext, useEffect, useState } from 'react';
+import { DetailContext } from '@/contexts';
 
 // Component
 import Image from '@/components/Image';
@@ -10,9 +11,6 @@ import { NextArrow, PrevArrow } from './Arrow';
 // Style
 import styles from './ProductImage.module.scss';
 import './CustomSlick.scss';
-
-// Framework
-import { DetailContext } from '../../contexts';
 
 const ProductImage = () => {
     let slider1, slider2;

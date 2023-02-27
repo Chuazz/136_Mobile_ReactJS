@@ -50,7 +50,7 @@
     padding-right: 12px;
     max-height: calc(100vh - 230px);
     min-height: calc(100vh - 230px);
-    overflow: auto;
+    overflow-y: auto;
 }
 
 .action {
@@ -61,13 +61,13 @@
     padding-right: 16px;
 
     &:hover {
-        background: rgb(238, 78, 52);
+        background: #ee4e34;
         color: #fcedda;
         box-shadow: 0 0 10px rgba(238, 78, 52);
     }
 }
 
-.actionContent{
+.actionContent {
     font-size: 1.35rem;
     font-weight: 500;
     padding-right: 12px;

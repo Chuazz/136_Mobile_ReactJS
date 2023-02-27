@@ -1,16 +1,16 @@
 // Framework
 import clsx from 'clsx';
 import { useContext } from 'react';
+import { DetailContext } from '@/contexts';
 
-// Framework
-import Price from '@/components/Price/Price';
+// Component
 import Option from './components/Option';
-import { DetailContext } from '@/pages/Detail/contexts';
+import Price from '@/components/Price/';
+import Promotion from './components/Promotion/';
+import ProductPolicy from './components/ProductPolicy';
 
 // Style
 import styles from './General.module.scss';
-import Promotion from './components/Promotion/';
-import ProductPolicy from './components/ProductPolicy';
 
 function GeneralInfo() {
     const context = useContext(DetailContext);

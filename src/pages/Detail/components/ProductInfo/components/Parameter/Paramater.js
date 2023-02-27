@@ -1,5 +1,5 @@
 // Framework
-import { DetailContext } from '@/pages/Detail/contexts';
+import { DetailContext } from '@/contexts';
 import clsx from 'clsx';
 import { useContext } from 'react';
 
