@@ -15,7 +15,7 @@ function Promotion() {
             setCurrPackages(currPromotion.packages);
             setCurrPackage();
         }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [currPackages]);
 
     return (

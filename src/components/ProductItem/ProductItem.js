@@ -1,7 +1,7 @@
 // Framework
 import propTypes from 'prop-types';
 import clsx from 'clsx';
-import { memo, useState } from 'react';
+import { memo, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 // Style

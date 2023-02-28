@@ -61,24 +61,28 @@ const DropDown = ({
 
     const onOptionsChange = () => {
         let optionChange;
+        const option = options.find((option) => option.value === currOption.value);
 
-        if (options.find((option) => option.value === currOption.value)) {
-            setcurrOptions(options);
+        if (options !== currOptions) {
+            if (option) {
+                setcurrOptions(options);
+            } else {
+                optionChange = options[0];
+                setcurrOption(options[0]);
+                onChange(options, optionChange);
+            }
         } else {
-            optionChange = options[0];
-            setcurrOption(options[0]);
+            onChange(options, currOption);
         }
 
-        if (options === currOptions) {
-            onChange(options, currOption);
-        } else {
-            onChange(options, optionChange || options[0]);
+        if (option) {
+            onChange(options, option);
         }
     };
 
     useEffect(() => {
         onOptionsChange();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [options]);
 
     const tippyRender = options.map((option) => (

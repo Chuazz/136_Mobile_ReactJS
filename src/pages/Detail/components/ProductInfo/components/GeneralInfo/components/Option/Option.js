@@ -1,6 +1,6 @@
 // Framework
 import clsx from 'clsx';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { DetailContext } from '@/contexts';
 
 // Component
@@ -8,6 +8,7 @@ import CapacityColorOption from '@/components/CapacityColorOption';
 
 // Style
 import styles from '../../General.module.scss';
+import { useNavigate } from 'react-router-dom';
 
 function Option() {
     const context = useContext(DetailContext);
@@ -22,6 +23,8 @@ function Option() {
         setCurrPackage,
     } = context;
 
+    const navigate = useNavigate();
+
     return (
         <CapacityColorOption
             product={product}
@@ -32,14 +35,17 @@ function Option() {
             CapcityOptionClick={(selected) => {
                 setCurrCapacity(selected);
                 setCurrPromotion(selected);
-                setCurrPackage();
+                navigate(`?v=${selected.value}&c=${currColor.value.replace('#', '')}`);
             }}
             ColorOptionClick={(selected) => {
                 setCurrColor(selected);
                 setCurrImgPaths(selected);
+                navigate(`?v=${currCapacity.value}&c=${selected.value.replace('#', '')}`);
             }}
             ColorOptionChange={(options, optionChange) => {
                 setCurrImgPaths(optionChange);
+                navigate(`?v=${currCapacity.value}&c=${currColor.value.replace('#', '')}`);
+                setCurrPackage();
             }}
         />
     );
