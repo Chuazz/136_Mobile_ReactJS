@@ -41,6 +41,14 @@ function DetailProvider({ children }) {
     const [currPromotion, setCurrPromotion] = useState(getPromtion(currCapacity));
     const [currPackages, setCurrPackages] = useState(currPromotion.packages);
     const [currPackage, setCurrPackage] = useState();
+    const [currComments, setCurrComments] = useState(
+        product.comments.find(
+            (comment) =>
+                comment.productId === product.id &&
+                comment.capacityValue === currCapacity.value &&
+                comment.colorValue === currColor.value,
+        ),
+    );
 
     const value = {
         product,
@@ -49,6 +57,7 @@ function DetailProvider({ children }) {
         currImgPaths,
         currPromotion,
         currPackages,
+        currComments,
         setCurrPackages(packages) {
             setCurrPackages(packages);
         },

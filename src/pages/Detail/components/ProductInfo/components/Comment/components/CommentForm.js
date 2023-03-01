@@ -1,6 +1,6 @@
 // Framework
 import clsx from 'clsx';
-import { FaUserSecret, FaUserNurse } from 'react-icons/fa';
+import { FaUserSecret } from 'react-icons/fa';
 import { Collapse } from 'react-collapse';
 import ReactTextareaAutosize from 'react-textarea-autosize';
 import { ErrorMessage } from '@hookform/error-message';
@@ -13,7 +13,7 @@ import Button from '@/components/Button';
 import styles from '../Comment.module.scss';
 import { useState } from 'react';
 
-function CommentForm() {
+function CommentForm({ className, inputValue, isCollapsed = false, commentText = 'Bình luận', onCancel = () => {} }) {
     const {
         register,
         handleSubmit,
@@ -22,12 +22,21 @@ function CommentForm() {
     } = useForm();
     const onSubmit = (data) => console.log(data);
 
-    const [collapsed, setCollapsed] = useState(false);
+    const [collapsed, setCollapsed] = useState(isCollapsed);
     const [writting, setWritting] = useState(false);
+
+    const hanldeCancleClick = (e) => {
+        resetField('content');
+        setCollapsed(false);
+        onCancel((value) => {
+            setCollapsed(value);
+        });
+        e.preventDefault();
+    };
 
     return (
         <>
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <form onSubmit={handleSubmit(onSubmit)} className={className}>
                 <div className="row">
                     <div>
                         <Button leftIcon={<FaUserSecret />} className={clsx(styles.userIcon)} shape="circle"></Button>
@@ -53,6 +62,7 @@ function CommentForm() {
                                 onBlur={() => {
                                     setWritting(false);
                                 }}
+                                defaultValue={inputValue}
                             />
                             <div className={styles.contentBorder}></div>
                         </div>
@@ -65,18 +75,14 @@ function CommentForm() {
                     </div>
                 </div>
 
-                <Collapse isOpened={collapsed} theme={{ content: clsx(styles.collapse, 'row jus-end') }}>
-                    <Button
-                        className={clsx(styles.uploadBtn, styles.cancel)}
-                        onClick={(e) => {
-                            resetField('content');
-                            setCollapsed(false);
-                            e.preventDefault();
-                        }}
-                    >
+                <Collapse
+                    isOpened={collapsed}
+                    theme={{ content: clsx('row jus-end'), collapse: clsx(styles.collapse) }}
+                >
+                    <Button className={clsx(styles.uploadBtn, styles.cancel)} onClick={hanldeCancleClick}>
                         Hủy
                     </Button>
-                    <Button className={clsx(styles.uploadBtn)}>Bình luận</Button>
+                    <Button className={clsx(styles.uploadBtn)}>{commentText}</Button>
                 </Collapse>
             </form>
         </>

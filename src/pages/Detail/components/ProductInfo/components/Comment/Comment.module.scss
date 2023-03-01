@@ -7,7 +7,7 @@
 .content {
     width: 100%;
     border: none;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     line-height: 1.7;
     max-height: 110px;
 }
@@ -17,11 +17,10 @@
     display: block;
     content: '';
     width: 100%;
-    height: 2px;
+    height: 1.6px;
     background: #dcdbdb;
     right: 0;
     bottom: 0;
-    border-bottom-right-radius: 2px;
 
     &::after {
         position: absolute;
@@ -31,7 +30,6 @@
         background: #fff;
         right: 0;
         bottom: 4px;
-        border-bottom-right-radius: 2px;
     }
 
     &::before {
@@ -68,7 +66,16 @@
 }
 
 .collapse {
-    margin-top: 12px;
+    transition: all 0.15s linear;
+}
+
+.collapse {
+    margin-bottom: 12px;
+    padding-top: 12px;
+
+    .replyRole {
+        border: none;
+    }
 }
 
 .uploadBtn {
@@ -93,14 +100,107 @@
     }
 }
 
+.item {
+    padding-top: 12px;
+}
+
 .userIcon {
     background: transparent;
-    height: 45px;
-    width: 45px;
-    box-shadow: inset 0 0 10px rgba(0, 102, 255, 65%);
-    margin-right: 12px;
+    height: 32px;
+    width: 32px;
+    box-shadow: inset 0 0 10px rgba(0, 102, 255, 0.651);
+    margin-right: 8px;
 
     svg {
-        font-size: 1.7rem;
+        font-size: 1.3rem;
     }
+}
+
+.adminIcon {
+    box-shadow: inset 0 0 15px rgba(255, 231, 16, 65%);
+}
+
+.replyRole {
+    margin-left: 40px;
+    padding-left: 10px;
+    border-left: 2px solid #dbdbdb;
+
+    .userIcon {
+        height: 30px;
+        width: 30px;
+        box-shadow: inset 0 0 10px rgba(0, 102, 255, 0.651);
+
+        svg {
+            font-size: 1.2rem;
+        }
+    }
+
+    .adminIcon {
+        box-shadow: inset 0 0 10px rgba(255, 231, 16, 65%);
+    }
+}
+
+.userInfo {
+    background: #f0f2f5;
+    padding: 8px 12px;
+    border-radius: 18px;
+    width: fit-content;
+}
+
+.userName {
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.userName.replyUserName {
+    color: #292929;
+}
+
+.userContent {
+    font-size: 1.3rem;
+    color: #4c4b4b;
+}
+
+.userAction {
+    font-size: 1.2rem;
+    gap: 12px;
+    padding-left: 12px;
+
+    p {
+        font-weight: 700;
+        color: #65676b;
+        user-select: none;
+    }
+
+    p:hover {
+        text-decoration: underline;
+        cursor: pointer;
+    }
+
+    .commentTime {
+        font-weight: 500;
+    }
+}
+
+.likeCount {
+    background: #fdfdfd;
+    width: fit-content;
+    padding: 2px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+    border-radius: 999px;
+    position: absolute;
+    right: 0;
+    bottom: -14px;
+    font-size: 1.3rem;
+    line-height: 1;
+    color: #65676b;
+
+    svg {
+        width: 18px;
+        height: 18px;
+    }
+}
+
+.likeBtn.active {
+    color: rgb(32, 120, 244);
 }

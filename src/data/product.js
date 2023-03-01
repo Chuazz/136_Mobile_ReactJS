@@ -128,27 +128,65 @@ const products = [
 
         comments: [
             {
-                id: 1,
-                userName: 'Ngô Văn Sơn',
-                content: 'Sản phẩm này còn hàng tại thành phố Hồ Chí Minh không shop ????',
-                time: "1 ngày",
-                likes: 2
+                productId: '14prm',
+                capacityValue: '128GB',
+                colorValue: '#594f63',
+                conversations: [
+                    {
+                        id: 1,
+                        role: 'user',
+                        userName: 'Ngô Văn Sơn',
+                        content: 'Sản phẩm này còn hàng tại thành phố Hồ Chí Minh không shop ????',
+                        fullTime: 'Tue Feb 27 2020 09:17:11 GMT+0700 (Indochina Time)',
+                        likes: 2,
+                    },
+                    {
+                        id: 2,
+                        role: 'user',
+                        userName: 'Thanh Tài Lanh',
+                        content: 'Thủ tục trả góp của sản phẩm này như nào vậy shop ?',
+                        fullTime: 'Mon Feb 27 2023 09:17:11 GMT+0700 (Indochina Time)',
+                        likes: 1,
+                    },
+                    {
+                        id: 3,
+                        replyId: 1,
+                        role: 'admin',
+                        userName: 'Quản trị viên',
+                        content:
+                            'Chào anh. sản phẩm hiện đang có tại các cửa hàng của 136 Mobile trên toàn quốc, rất mong được đón tiếp anh tại các cửa hàng của 136 mobile. Thông tin đến anh',
+                        fullTime: 'Mon Feb 22 2023 09:17:11 GMT+0700 (Indochina Time)',
+                        likes: 4,
+                    },
+                    {
+                        id: 4,
+                        replyId: 2,
+                        role: 'user',
+                        userName: 'Duy Đức',
+                        content: 'Tiền ăn sáng thì deo có mà cứ đồi 14 pro max, hảo hảo chua cay',
+                        fullTime: 'Mon Feb 22 2023 09:17:11 GMT+0700 (Indochina Time)',
+                        likes: 4,
+                    },
+                    {
+                        id: 5,
+                        role: 'user',
+                        userName: 'Thị Hà',
+                        content: 'Có cửa hàng nào tại Bình Dương không nhể ?',
+                        fullTime: 'Mon Feb 22 2023 09:17:11 GMT+0700 (Indochina Time)',
+                        likes: 4,
+                    },
+                    {
+                        id: 6,
+                        role: 'admin',
+                        replyId: 5,
+                        userName: 'Quản trị viên',
+                        content:
+                            'Chào chị. sản phẩm hiện đang có tại các cửa hàng của 136 Mobile trên toàn quốc, rất mong được đón tiếp chị tại các cửa hàng của 136 mobile. Thông tin đến chị',
+                        fullTime: 'Mon Feb 22 2023 09:17:11 GMT+0700 (Indochina Time)',
+                        likes: 4,
+                    },
+                ],
             },
-            {
-                id: 2,
-                userName: 'Ngô Văn Trường',
-                content: 'Thủ tục trả góp của sản phẩm này như nào vậy shop ?',
-                time: "1 ngày",
-                likes: 1,
-            },
-            {
-                id: 3,
-                replyId: 1,
-                userName: "Quản trị viên",
-                content: "Chào anh\nSản phẩm hiện đang có tại các cửa hàng của 136 Mobile trên toàn quốc\nThông tin đến anh",
-                time: "1 ngày",
-                likes: 4,
-            }
         ],
 
         sharedImgs: [
