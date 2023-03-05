@@ -28,6 +28,16 @@ function DetailProvider({ children }) {
 
         return result;
     };
+    const getComments = (productId, capacity, color) => {
+        const comments = product.comments.find(
+            (comment) =>
+                comment.productId === productId &&
+                comment.capacityValue === capacity.value &&
+                comment.colorValue === color.value,
+        );
+
+        return comments || { conversations: [] };
+    };
 
     const [currCapacity, setCurrCapacity] = useState(
         product.capacities.find((capacity) => capacity.value === values.get('v')),
@@ -41,14 +51,7 @@ function DetailProvider({ children }) {
     const [currPromotion, setCurrPromotion] = useState(getPromtion(currCapacity));
     const [currPackages, setCurrPackages] = useState(currPromotion.packages);
     const [currPackage, setCurrPackage] = useState();
-    const [currComments, setCurrComments] = useState(
-        product.comments.find(
-            (comment) =>
-                comment.productId === product.id &&
-                comment.capacityValue === currCapacity.value &&
-                comment.colorValue === currColor.value,
-        ),
-    );
+    const [currComments, setCurrComments] = useState(getComments(product.id, currCapacity, currColor));
 
     const value = {
         product,
@@ -58,6 +61,7 @@ function DetailProvider({ children }) {
         currPromotion,
         currPackages,
         currComments,
+        getComments,
         setCurrPackages(packages) {
             setCurrPackages(packages);
         },
@@ -76,6 +80,9 @@ function DetailProvider({ children }) {
         },
         setCurrPackage(item) {
             setCurrPackage(item);
+        },
+        setCurrComments(comments) {
+            setCurrComments(comments);
         },
     };
 

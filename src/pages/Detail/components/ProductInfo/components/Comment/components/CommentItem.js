@@ -1,10 +1,11 @@
 // Framework
 import Button from '@/components/Button';
-import Image from '@/components/Image';
 import { Like } from '@/components/SvgIcon';
+import { DetailContext } from '@/contexts';
+import { infos } from '@/data';
 import { getTimeOfComment } from '@/utils';
 import clsx from 'clsx';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { Collapse } from 'react-collapse';
 import { FaUserSecret, FaUserNurse } from 'react-icons/fa';
 
@@ -13,17 +14,20 @@ import styles from '../Comment.module.scss';
 import CommentForm from './CommentForm';
 
 function CommentItem({ info }) {
-    const [likes, setLikes] = useState(info.likes);
+    const [likes, setLikes] = useState();
     const [liked, setLiked] = useState(false);
     const [reply, setReply] = useState(false);
+
+    const context = useContext(DetailContext);
+    const { currComments, setCurrComments } = context;
 
     const handleLikeClick = () => {
         if (!liked) {
             setLiked(true);
-            setLikes(likes + 1);
+            setLikes((likes || info.likes) + 1);
         } else {
             setLiked(false);
-            setLikes(likes - 1);
+            setLikes((likes || info.likes) - 1);
         }
     };
 
@@ -46,11 +50,11 @@ function CommentItem({ info }) {
                             <p className={clsx(styles.userName)}>{info.userName}</p>
                             <p className={clsx(styles.userContent)}>{info.content}</p>
 
-                            {likes > 0 && (
+                            {(likes || info.likes) > 0 && (
                                 <div className={clsx(styles.likeCount, 'row ali-center')}>
                                     <Like />
 
-                                    {likes > 1 && <p className="ma-l-4 p-r-4">{likes}</p>}
+                                    {(likes || info.likes) > 1 && <p className="ma-l-4 p-r-4">{likes || info.likes}</p>}
                                 </div>
                             )}
                         </div>
@@ -72,6 +76,25 @@ function CommentItem({ info }) {
                     className={clsx(styles.replyRole, styles.commentForm)}
                     commentText="Phản hồi"
                     onCancel={(setCollapsed) => {
+                        setReply(false);
+                        setCollapsed(true);
+                    }}
+                    onSubmit={(data, setCollapsed) => {
+                        setCurrComments({
+                            ...currComments,
+                            conversations: [
+                                {
+                                    id: Math.random(),
+                                    replyId: info.id,
+                                    role: 'user',
+                                    userName: 'Vịt Donald',
+                                    content: data.content,
+                                    fullTime: Date(),
+                                    likes: 0,
+                                },
+                                ...currComments.conversations,
+                            ],
+                        });
                         setReply(false);
                         setCollapsed(true);
                     }}

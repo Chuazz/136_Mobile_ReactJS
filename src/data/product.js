@@ -187,6 +187,31 @@ const products = [
                     },
                 ],
             },
+            {
+                productId: '14prm',
+                capacityValue: '128GB',
+                colorValue: '#f4e8ce',
+                conversations: [
+                    {
+                        id: 1,
+                        role: 'user',
+                        userName: 'Vịt Donald',
+                        content: 'Ước gì được cửa hàng tặng cho 1 cái về sài chơi',
+                        fullTime: 'Tue Feb 27 2020 09:17:11 GMT+0700 (Indochina Time)',
+                        likes: 100,
+                    },
+                    {
+                        id: 2,
+                        role: 'admin',
+                        replyId: 1,
+                        userName: 'Quản trị viên',
+                        content:
+                            'Chào vịt. Đó là 1 việc rất khó đối với bên em, rất mong nhận được sự thông cảm từ vịt. Thông tin đến vịt',
+                        fullTime: 'Mon Feb 22 2023 09:17:11 GMT+0700 (Indochina Time)',
+                        likes: 4,
+                    },
+                ],
+            },
         ],
 
         sharedImgs: [

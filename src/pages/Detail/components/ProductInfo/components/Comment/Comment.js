@@ -12,15 +12,32 @@ import styles from './Comment.module.scss';
 
 function Comment() {
     const context = useContext(DetailContext);
-    const { currComments } = context;
+    const { currComments, setCurrComments } = context;
 
     return (
         <div className={clsx(styles.container)}>
             <div>
-                <CommentForm />
+                <CommentForm
+                    onSubmit={(data) => {
+                        setCurrComments({
+                            ...currComments,
+                            conversations: [
+                                {
+                                    id: Math.random(),
+                                    role: 'user',
+                                    userName: 'Vịt Donald',
+                                    content: data.content,
+                                    fullTime: Date(),
+                                    likes: 0,
+                                },
+                                ...currComments.conversations,
+                            ],
+                        });
+                    }}
+                />
             </div>
 
-            <div className="ma-t-24">
+            <div className="ma-t-16">
                 <CommentList comments={currComments.conversations} />
             </div>
         </div>

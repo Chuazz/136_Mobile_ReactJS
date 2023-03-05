@@ -11,19 +11,34 @@ import Button from '@/components/Button';
 
 // Style
 import styles from '../Comment.module.scss';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
-function CommentForm({ className, inputValue, isCollapsed = false, commentText = 'Bình luận', onCancel = () => {} }) {
+function CommentForm({
+    className,
+    inputValue,
+    isCollapsed = false,
+    commentText = 'Bình luận',
+    onCancel = () => {},
+    onSubmit = () => {},
+}) {
     const {
         register,
         handleSubmit,
         formState: { errors },
         resetField,
+        setValue,
     } = useForm();
-    const onSubmit = (data) => console.log(data);
 
     const [collapsed, setCollapsed] = useState(isCollapsed);
     const [writting, setWritting] = useState(false);
+
+    const handleOnSubmit = (data) => {
+        resetField('content');
+        setCollapsed(false);
+        onSubmit(data, (value) => {
+            setCollapsed(value);
+        });
+    };
 
     const hanldeCancleClick = (e) => {
         resetField('content');
@@ -34,9 +49,13 @@ function CommentForm({ className, inputValue, isCollapsed = false, commentText =
         e.preventDefault();
     };
 
+    useEffect(() => {
+        setValue('content', inputValue);
+    });
+
     return (
         <>
-            <form onSubmit={handleSubmit(onSubmit)} className={className}>
+            <form onSubmit={handleSubmit(handleOnSubmit)} className={className}>
                 <div className="row">
                     <div>
                         <Button leftIcon={<FaUserSecret />} className={clsx(styles.userIcon)} shape="circle"></Button>
@@ -62,7 +81,6 @@ function CommentForm({ className, inputValue, isCollapsed = false, commentText =
                                 onBlur={() => {
                                     setWritting(false);
                                 }}
-                                defaultValue={inputValue}
                             />
                             <div className={styles.contentBorder}></div>
                         </div>
@@ -77,7 +95,7 @@ function CommentForm({ className, inputValue, isCollapsed = false, commentText =
 
                 <Collapse
                     isOpened={collapsed}
-                    theme={{ content: clsx('row jus-end'), collapse: clsx(styles.collapse) }}
+                    theme={{ content: clsx('row jus-end ma-t-12'), collapse: clsx(styles.collapse) }}
                 >
                     <Button className={clsx(styles.uploadBtn, styles.cancel)} onClick={hanldeCancleClick}>
                         Hủy

@@ -69,10 +69,12 @@
     transition: all 0.15s linear;
 }
 
-.collapse {
+.commentForm {
     margin-bottom: 12px;
     padding-top: 12px;
+}
 
+.collapse {
     .replyRole {
         border: none;
     }
@@ -145,6 +147,7 @@
     padding: 8px 12px;
     border-radius: 18px;
     width: fit-content;
+    min-width: 250px;
 }
 
 .userName {

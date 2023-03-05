@@ -1,8 +1,8 @@
 import DateDiff from 'date-diff';
 
 function getTimeOfComment(firstDate, secondDate) {
-    var date1 = new Date(secondDate); // 2015-12-1
-    var date2 = new Date(firstDate); // 2014-01-1
+    var date1 = new Date(secondDate);
+    var date2 = new Date(firstDate);
 
     var diff = new DateDiff(date1, date2);
 
@@ -47,7 +47,7 @@ function getTimeOfComment(firstDate, secondDate) {
         return t.value > 0;
     });
 
-    return result.value + ' ' + result.name;
+    return (result && result.value + ' ' + result.name) || 'Vài giây trước';
 }
 
 export default getTimeOfComment;

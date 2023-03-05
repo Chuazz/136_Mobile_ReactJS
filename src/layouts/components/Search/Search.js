@@ -10,7 +10,6 @@ import { MagnifyingGlass } from '@/components/SvgIcon/SvgIcon';
 
 // Style
 import styles from './Search.module.scss';
-import { addSlashForSpecialChars } from '@/utils';
 
 const testData = {
     imgPath:
@@ -47,10 +46,7 @@ const Search = () => {
 
     useEffect(() => {
         const onClick = (e) => {
-            if (
-                !e.target.closest(addSlashForSpecialChars(`.${styles.result}`)) &&
-                !e.target.closest(addSlashForSpecialChars(`.${styles.content}`))
-            ) {
+            if (!e.target.closest(`.${styles.result}`) && !e.target.closest(`.${styles.content}`)) {
                 setVisible(false);
             }
         };
@@ -65,7 +61,7 @@ const Search = () => {
         setVisible(true);
     };
 
-    const onClick = (e) => {
+    const inputOnClick = (e) => {
         if (e.target.value !== '') {
             setVisible(true);
         }
@@ -87,7 +83,7 @@ const Search = () => {
                         placeholder="Tìm kiếm điện thoại, phụ kiện"
                         spellCheck={false}
                         onInput={onInput}
-                        onClick={onClick}
+                        onClick={inputOnClick}
                     />
                 </div>
             </Popup>
