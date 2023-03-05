@@ -15,7 +15,7 @@ import Option from '../CapacityColorOption';
 // Utils
 import Price from '../Price/Price';
 
-const ProductItem = ({ className, product }) => {
+const ProductItem = ({ className, product, direction = 'horizontal' }) => {
     const capacities = product.capacities;
     const [currColor, setCurrColor] = useState(capacities[0].colors[0]);
 
@@ -29,13 +29,17 @@ const ProductItem = ({ className, product }) => {
 
     return (
         <div className={clsx(styles.container, className)}>
-            <div className={clsx(styles.info, 'row ali-start relative')}>
+            <div
+                className={clsx(styles.info, 'row ali-start relative', {
+                    [styles.vertical]: direction === 'vertical' ? true : false,
+                })}
+            >
                 <Link to={`/${currColor.linkTo}`} className={clsx(styles.thumbnail)}>
                     <Image src={currImg} />
                 </Link>
 
                 <div className="flex-1">
-                    <Name className={styles.name} name={product.name} linkTo={currColor.linkTo} />
+                    <Name className={styles.name} name={product.name} />
 
                     <div className={clsx(styles.options, 'row ali-center')}>
                         <Option
@@ -69,6 +73,7 @@ const ProductItem = ({ className, product }) => {
 ProductItem.propTypes = {
     className: propTypes.string,
     info: propTypes.object,
+    direction: propTypes.oneOf(['horizontal', 'vertical']),
 };
 
 export default memo(ProductItem);

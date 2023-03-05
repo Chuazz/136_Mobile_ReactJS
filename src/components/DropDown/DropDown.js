@@ -59,51 +59,44 @@ const DropDown = ({
         onOptionClick(option);
     };
 
-    const onOptionsChange = () => {
-        let optionChange;
-        const option = options.find((option) => option.value === currOption.value);
-
-        if (options !== currOptions) {
-            if (option) {
-                setcurrOptions(options);
-            } else {
-                optionChange = options[0];
-                setcurrOption(options[0]);
-                onChange(options, optionChange);
-            }
-        } else {
-            onChange(options, currOption);
-        }
-
-        if (option) {
-            onChange(options, option);
-        }
-    };
-
     useEffect(() => {
-        onOptionsChange();
+        if (options !== currOptions) {
+            const optionFound = options.find((t) => t.value === currOption.value);
+
+            if (optionFound) {
+                setcurrOption(optionFound);
+                onChange(options, optionFound);
+            } else {
+                setcurrOption(options[0]);
+                onChange(options, options[0]);
+            }
+
+            setcurrOptions(options);
+        }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [options]);
 
-    const tippyRender = options.map((option) => (
-        <div key={option.value}>
-            <Button
-                className={clsx(styles.option, styles.dropdown)}
-                active={option.value === currOption.value ? true : false}
-                onClick={() => optionOnClick(option)}
-                leftIcon={
-                    isColorAfter ? (
-                        <span
-                            style={{ '--bg-color': option.value }}
-                            className={clsx(styles.colorAfter, colorAfterClass)}
-                        ></span>
-                    ) : undefined
-                }
-            >
-                <p>{option.label || option.value}</p>
-            </Button>
-        </div>
-    ));
+    const tippyRender = options.map((option) => {
+        return (
+            <div key={option.value}>
+                <Button
+                    className={clsx(styles.option, styles.dropdown)}
+                    active={option.value === currOption.value ? true : false}
+                    onClick={() => optionOnClick(option)}
+                    leftIcon={
+                        isColorAfter ? (
+                            <span
+                                style={{ '--bg-color': option.value }}
+                                className={clsx(styles.colorAfter, colorAfterClass)}
+                            ></span>
+                        ) : undefined
+                    }
+                >
+                    <p>{option.label || option.value}</p>
+                </Button>
+            </div>
+        );
+    });
 
     const tippyNewProp = {
         duration: 0,

@@ -12,16 +12,18 @@ import styles from './CapacityColorOption.module.scss';
 const CapacityColorOption = ({
     className,
     CapacityClassName,
-    CapacitySeletedValue,
+    SelectedCapacity,
     ColorClassName,
-    ColorSeletedValue,
+    SelectedColor,
     product,
     CapcityOptionClick = () => {},
     ColorOptionClick = () => {},
     ColorOptionChange = () => {},
 }) => {
     const capacities = product.capacities;
-    const [currColors, setCurrColors] = useState(capacities[0].colors);
+    const [currColors, setCurrColors] = useState(
+        SelectedCapacity ? capacities.find((t) => t.value === SelectedCapacity.value).colors : capacities[0].colors,
+    );
 
     return (
         <div className={className}>
@@ -29,7 +31,7 @@ const CapacityColorOption = ({
                 <p className={clsx(styles.title)}>Bộ nhớ:</p>
                 <DropDown
                     options={capacities}
-                    selectedValue={CapacitySeletedValue}
+                    selectedValue={SelectedCapacity}
                     onOptionClick={(selected) => {
                         setCurrColors(capacities.find((t) => t.value === selected.value).colors);
                         CapcityOptionClick(selected);
@@ -41,7 +43,7 @@ const CapacityColorOption = ({
                 <p className={clsx(styles.title)}>Màu sắc:</p>
                 <DropDown
                     options={currColors}
-                    selectedValue={ColorSeletedValue}
+                    selectedValue={SelectedColor}
                     isColorAfter
                     onOptionClick={(selected) => {
                         ColorOptionClick(selected);
@@ -57,8 +59,8 @@ const CapacityColorOption = ({
 
 CapacityColorOption.propTypes = {
     product: propTypes.object.isRequired,
-    ColorSeletedValue: propTypes.object,
-    CapacitySeletedValue: propTypes.object,
+    SelectedColor: propTypes.object,
+    SelectedCapacity: propTypes.object,
     className: propTypes.string,
     CapacityClassName: propTypes.string,
     ColorClassName: propTypes.string,

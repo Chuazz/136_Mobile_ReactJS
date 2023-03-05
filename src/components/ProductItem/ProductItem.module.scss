@@ -53,3 +53,29 @@
     box-shadow: inset 0 3px 4px rgb(0 0 0 / 25%);
     border-radius: 50%;
 }
+
+.info.vertical {
+    flex-direction: column;
+    align-items: center;
+    padding: 12px;
+    background: none;
+}
+
+.info.vertical .options {
+    display: none;
+}
+
+.info.vertical .thumbnail {
+    width: 220px;
+}
+
+.info.vertical .name {
+    margin: 16px 0;
+    font-weight: 500;
+    font-size: 1.6rem;
+    text-align: center;
+
+    &::after{
+        content: initial;
+    }
+}
