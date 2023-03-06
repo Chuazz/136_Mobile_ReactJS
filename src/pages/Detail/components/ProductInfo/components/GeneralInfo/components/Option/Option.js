@@ -9,13 +9,14 @@ import CapacityColorOption from '@/components/CapacityColorOption';
 // Style
 import styles from '../../General.module.scss';
 import { useNavigate } from 'react-router-dom';
+import { useFormContext } from 'react-hook-form';
 
 function Option() {
-    const context = useContext(DetailContext);
     const {
         product,
         currCapacity,
         currColor,
+        currPackage,
         getComments,
         setCurrCapacity,
         setCurrColor,
@@ -23,22 +24,29 @@ function Option() {
         setCurrPromotion,
         setCurrPackage,
         setCurrComments,
-    } = context;
+    } = useContext(DetailContext);
 
     const navigate = useNavigate();
+
+    const { resetField } = useFormContext();
 
     return (
         <CapacityColorOption
             product={product}
             className={clsx(styles.options, 'row ali-center ma-t-24')}
             CapacityClassName={clsx(styles.capacity)}
-            CapacitySeletedValue={currCapacity}
-            ColorSeletedValue={currColor}
+            SelectedCapacity={currCapacity}
+            SelectedColor={currColor}
             CapcityOptionClick={(selected) => {
                 setCurrCapacity(selected);
                 setCurrPromotion(selected);
                 setCurrComments(getComments(product.id, selected, currColor));
                 navigate(`?v=${selected.value}&c=${currColor.value.replace('#', '')}`);
+
+                if (currPackage && !selected.promotion.packages.find((t) => t.value === currPackage.value)) {
+                    setCurrPackage();
+                    resetField('package');
+                }
             }}
             ColorOptionClick={(selected) => {
                 setCurrColor(selected);
@@ -48,9 +56,8 @@ function Option() {
             }}
             ColorOptionChange={(options, optionChange) => {
                 setCurrImgPaths(optionChange);
-                navigate(`?v=${currCapacity.value}&c=${currColor.value.replace('#', '')}`);
+                navigate(`?v=${currCapacity.value}&c=${optionChange.value.replace('#', '')}`);
                 setCurrComments(getComments(product.id, currCapacity, optionChange));
-                setCurrPackage();
             }}
         />
     );

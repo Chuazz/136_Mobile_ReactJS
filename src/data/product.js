@@ -14,7 +14,20 @@ const products = [
                 discount: 34490000,
                 promotion: {
                     time: '23:59 | 24/02',
-                    packages: ['discount1M', 'warranty12ms', 'insurance6msdrop'],
+                    packages: [
+                        {
+                            id: 'discount1M',
+                            value: 'Giảm giá 1.000.000đ',
+                        },
+                        {
+                            id: 'warranty12ms',
+                            value: 'Bảo hành 24 tháng (12 tháng chính hãng + 12 tháng bảo hành mở rộng) (Trị giá đến 2 triệu)',
+                        },
+                        {
+                            id: 'insurance6msdrop',
+                            value: 'Tặng gói bảo hiểm rơi vỡ 6 tháng (Trị giá đến 2 triệu)',
+                        },
+                    ],
                 },
                 colors: [
                     {
@@ -44,7 +57,16 @@ const products = [
                 price: 31690000,
                 promotion: {
                     time: '23:59 | 24/02',
-                    packages: ['discount1M', 'insurance6msdrop'],
+                    packages: [
+                        {
+                            id: 'discount1M',
+                            value: 'Giảm giá 1.000.000đ',
+                        },
+                        {
+                            id: 'warranty12ms',
+                            value: 'Bảo hành 24 tháng (12 tháng chính hãng + 12 tháng bảo hành mở rộng) (Trị giá đến 2 triệu)',
+                        },
+                    ],
                 },
                 colors: [
                     {
@@ -58,21 +80,6 @@ const products = [
                         value: '#f4e8ce',
                     },
                 ],
-            },
-        ],
-
-        packages: [
-            {
-                id: 'discount1M',
-                value: 'Giảm giá 1.000.000đ',
-            },
-            {
-                id: 'warranty12ms',
-                value: 'Bảo hành 24 tháng (12 tháng chính hãng + 12 tháng bảo hành mở rộng) (Trị giá đến 2 triệu)',
-            },
-            {
-                id: 'insurance6msdrop',
-                value: 'Tặng gói bảo hiểm rơi vỡ 6 tháng (Trị giá đến 2 triệu)',
             },
         ],
 
@@ -265,6 +272,12 @@ const products = [
             {
                 colorValue: 'all',
                 imgPaths: [i14prm.i1, i14prm.i2, i14prm.i3, i14prm.i4],
+            },
+        ],
+
+        accessories: [
+            {
+                id: 1,
             },
         ],
     },

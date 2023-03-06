@@ -1,22 +1,17 @@
 // Framework
 import { DetailContext } from '@/contexts';
 import clsx from 'clsx';
-import { useContext, useEffect } from 'react';
+import { useContext } from 'react';
+import { useFormContext } from 'react-hook-form';
 
 // Style
 import styles from './Promotion.module.scss';
 
 function Promotion() {
-    const context = useContext(DetailContext);
-    const { currPromotion, currPackage, currPackages, setCurrPackage, setCurrPackages } = context;
+    const { register } = useFormContext();
 
-    useEffect(() => {
-        if (currPromotion.packages !== currPackages) {
-            setCurrPackages(currPromotion.packages);
-            setCurrPackage();
-        }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [currPackages]);
+    const context = useContext(DetailContext);
+    const { currPromotion, currPackage, setCurrPackage } = context;
 
     return (
         <div className={clsx(styles.container)}>
@@ -32,12 +27,15 @@ function Promotion() {
 
                 <div className={clsx(styles.list)}>
                     {currPromotion.packages.map((item) => (
-                        <label
-                            className={clsx(styles.item, 'row ali-center')}
-                            key={item.id}
-                            onClick={() => setCurrPackage(item)}
-                        >
-                            <input type="radio" name="promotion" />
+                        <label className={clsx(styles.item, 'row ali-center')} key={item.id}>
+                            <input
+                                {...register('package')}
+                                type="radio"
+                                defaultValue={item.value}
+                                onChange={() => {
+                                    setCurrPackage(item);
+                                }}
+                            />
                             <p className="ma-l-4">{item.value}</p>
                         </label>
                     ))}
