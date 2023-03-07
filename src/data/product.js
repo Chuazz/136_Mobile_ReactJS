@@ -158,6 +158,15 @@ const products = [
                     {
                         id: 3,
                         replyId: 1,
+                        role: 'User',
+                        userName: 'Hà Ngô',
+                        content: 'Tập tành 14 Pro luôn ha',
+                        fullTime: 'Mon Feb 22 2023 09:17:11 GMT+0700 (Indochina Time)',
+                        likes: 4,
+                    },
+                    {
+                        id: 4,
+                        replyId: 1,
                         role: 'admin',
                         userName: 'Quản trị viên',
                         content:
@@ -166,7 +175,7 @@ const products = [
                         likes: 4,
                     },
                     {
-                        id: 4,
+                        id: 5,
                         replyId: 2,
                         role: 'user',
                         userName: 'Duy Đức',
@@ -175,7 +184,7 @@ const products = [
                         likes: 4,
                     },
                     {
-                        id: 5,
+                        id: 6,
                         role: 'user',
                         userName: 'Thị Hà',
                         content: 'Có cửa hàng nào tại Bình Dương không nhể ?',
@@ -183,9 +192,9 @@ const products = [
                         likes: 4,
                     },
                     {
-                        id: 6,
+                        id: 7,
+                        replyId: 6,
                         role: 'admin',
-                        replyId: 5,
                         userName: 'Quản trị viên',
                         content:
                             'Chào chị. sản phẩm hiện đang có tại các cửa hàng của 136 Mobile trên toàn quốc, rất mong được đón tiếp chị tại các cửa hàng của 136 mobile. Thông tin đến chị',

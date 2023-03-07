@@ -6,7 +6,7 @@ import { DetailContext } from '@/contexts';
 
 // Component
 import Image from '@/components/Image';
-import { NextArrow, PrevArrow } from './Arrow';
+import { NextArrow, PrevArrow } from '@/components/Arrow';
 
 // Style
 import styles from './ProductImage.module.scss';

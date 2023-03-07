@@ -1,5 +1,7 @@
 // Framework
 import clsx from 'clsx';
+import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
 // Component
 import Footer from '../components/Footer';
@@ -10,6 +12,12 @@ import Sidebar from '../components/Sidebar';
 import styles from './DefaultLayout.module.scss';
 
 function DefaultLayout({ children }) {
+    const location = useLocation();
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [location]);
+
     return (
         <>
             <Header />

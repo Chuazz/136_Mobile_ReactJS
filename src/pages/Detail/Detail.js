@@ -1,18 +1,25 @@
 // Component
 import { DetailProvider } from '@/contexts';
+import AccessoryInclude from './components/AccessoryInclude';
 import ProductImage from './components/ProductImage';
 import ProductInfo from './components/ProductInfo';
 
 const Detail = () => {
     return (
         <DetailProvider>
-            <div className="row" id="detail" style={{ padding: '0 40px' }}>
-                <div className="h-5">
-                    <ProductImage />
+            <div style={{ padding: '0 40px' }}>
+                <div className="row" id="detail">
+                    <div className="h-5">
+                        <ProductImage />
+                    </div>
+
+                    <div className="h-7">
+                        <ProductInfo />
+                    </div>
                 </div>
 
-                <div className="h-7">
-                    <ProductInfo />
+                <div>
+                    <AccessoryInclude />
                 </div>
             </div>
         </DetailProvider>
