@@ -11,11 +11,10 @@ import Button from '@/components/Button';
 
 // Style
 import styles from '../Comment.module.scss';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 function CommentForm({
     className,
-    inputValue,
     isCollapsed = false,
     commentText = 'Bình luận',
     onCancel = () => {},
@@ -26,7 +25,6 @@ function CommentForm({
         handleSubmit,
         formState: { errors },
         resetField,
-        setValue,
     } = useForm();
 
     const [collapsed, setCollapsed] = useState(isCollapsed);
@@ -48,10 +46,6 @@ function CommentForm({
         });
         e.preventDefault();
     };
-
-    useEffect(() => {
-        setValue('content', inputValue);
-    });
 
     return (
         <>

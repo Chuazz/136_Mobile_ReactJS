@@ -1,22 +1,27 @@
 // Framework
-import Button from '@/components/Button';
-import { Like } from '@/components/SvgIcon';
 import { DetailContext } from '@/contexts';
-import { infos } from '@/data';
-import { getTimeOfComment } from '@/utils';
 import clsx from 'clsx';
 import { useContext, useState } from 'react';
 import { Collapse } from 'react-collapse';
 import { FaUserSecret, FaUserNurse } from 'react-icons/fa';
 
+// Component
+import Button from '@/components/Button';
+import CommentForm from './CommentForm';
+import ReplyItem from './ReplyItem';
+import { Like } from '@/components/SvgIcon';
+
+// Util
+import { getTimeOfComment } from '@/utils';
+
 // Style
 import styles from '../Comment.module.scss';
-import CommentForm from './CommentForm';
 
 function CommentItem({ info }) {
     const [likes, setLikes] = useState();
     const [liked, setLiked] = useState(false);
     const [reply, setReply] = useState(false);
+    const userName = '@' + info.userName + ' ';
 
     const context = useContext(DetailContext);
     const { currComments, setCurrComments } = context;
@@ -72,7 +77,6 @@ function CommentItem({ info }) {
             <Collapse isOpened={reply} theme={{ collapse: clsx(styles.collapse) }}>
                 <CommentForm
                     isCollapsed
-                    inputValue={'@' + info.userName + ' '}
                     className={clsx(styles.replyRole, styles.commentForm)}
                     commentText="Phản hồi"
                     onCancel={(setCollapsed) => {
@@ -84,22 +88,25 @@ function CommentItem({ info }) {
                             ...currComments,
                             conversations: [
                                 {
-                                    id: Math.random(),
+                                    id: currComments.conversations.length + 1,
                                     replyId: info.id,
                                     role: 'user',
                                     userName: 'Vịt Donald',
-                                    content: data.content,
+                                    content: data.content.replace(userName, ''),
                                     fullTime: Date(),
                                     likes: 0,
                                 },
                                 ...currComments.conversations,
                             ],
                         });
+
                         setReply(false);
                         setCollapsed(true);
                     }}
                 />
             </Collapse>
+
+            <ReplyItem comments={currComments.conversations} comment={info} />
         </>
     );
 }
