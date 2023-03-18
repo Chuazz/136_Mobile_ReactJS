@@ -76,7 +76,11 @@
 
 .collapse {
     .replyRole {
-        border: none;
+        // border: none;
+    }
+
+    .item:first-child {
+        padding-top: 16px;
     }
 }
 
@@ -206,4 +210,32 @@
 
 .likeBtn.active {
     color: rgb(32, 120, 244);
+}
+
+.showAll {
+    padding: 4px 8px;
+    margin-top: 8px;
+    border-radius: 0;
+
+    p {
+        font-size: 1.3rem;
+        color: #65676b;
+        font-weight: 500;
+    }
+}
+
+.showAll:hover {
+    background: none;
+
+    p {
+        text-decoration: underline;
+    }
+}
+
+.showIcon {
+    transition: all 0.3s linear;
+}
+
+.showIcon.active {
+    transform: rotate(-180deg);
 }

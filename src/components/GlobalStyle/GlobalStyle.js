@@ -4,8 +4,8 @@ import propTypes from 'prop-types';
 // Style
 import './GlobalStyle.scss';
 import './Padding.scss';
-import './TippyCustom.scss';
 import './Margin.scss';
+import './GridSystem.scss';
 
 function GlobalStyle({ children }) {
     return <>{children}</>;
