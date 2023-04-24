@@ -1,7 +1,8 @@
 // Framework
 import clsx from 'clsx';
-import { memo } from 'react';
+import { memo, useEffect, useState } from 'react';
 import { MdOutlineChevronRight } from 'react-icons/md';
+import axios from 'axios';
 
 // Component
 import ProductList from '@/components/ProductList';
@@ -12,13 +13,21 @@ import ProductItem from '@/components/ProductItem';
 import styles from './Home.module.scss';
 import './components/Banner/CustomSlick.scss';
 
-// Config
-import { routes } from '@/config';
-
-// Data
+// Date
 import { products } from '@/data';
 
+// Config
+import { productAPI, routes } from '@/config';
+
 function Home() {
+    const [productList, setProductList] = useState([]);
+
+    useEffect(() => {
+        axios.get(productAPI.list()).then((res) => {
+            setProductList(res.data);
+        });
+    }, []);
+
     return (
         <div id="home">
             <Banner className={clsx(styles.banner)} />
@@ -31,8 +40,8 @@ function Home() {
                     showAllIcon={<MdOutlineChevronRight />}
                     className={clsx(styles.list)}
                 >
-                    {products.map((product) => (
-                        <ProductItem className={clsx(styles.item, 'h-4')} key={product.name} product={product} />
+                    {productList.map((product) => (
+                        <ProductItem className={clsx(styles.item, 'h-4')} key={product.Ma_SP} product={product} />
                     ))}
                 </ProductList>
             </div>

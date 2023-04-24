@@ -1,5 +1,1 @@
-function Cart() {
-    return <div>cart</div>;
-}
-
-export default Cart;
+export { default } from './Cart';

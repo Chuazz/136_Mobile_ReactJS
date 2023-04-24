@@ -1,4 +1,10 @@
 .container {
+    .button {
+        margin: 0 8px;
+    }
+}
+
+.container .popup {
     width: 382px;
     overflow: initial;
     position: relative;

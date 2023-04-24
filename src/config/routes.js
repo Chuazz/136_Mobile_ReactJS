@@ -5,7 +5,9 @@ const routes = {
     accessory: '/accessory',
     cart: '/cart',
     repair: '/repair',
-    detail: "/:name"
+    detail: '/detail/:name',
+    notification: '/notification',
+    profile: '/profile',
 };
 
 export default routes;

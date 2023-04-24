@@ -1,0 +1,26 @@
+.input {
+    border-bottom: 2px solid #ccc;
+    width: 24px;
+    margin: 0 4px;
+    text-align: center;
+    font-size: 1.6rem;
+}
+
+.icon {
+    cursor: pointer;
+    transition: all 0.2s linear;
+
+    &:hover {
+        transform: scale(1.1);
+    }
+}
+
+.input::-webkit-outer-spin-button,
+.input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.input[type='number'] {
+    -moz-appearance: textfield;
+}

@@ -1,7 +1,7 @@
 // Framework
 import propTypes from 'prop-types';
 import clsx from 'clsx';
-import { memo, useEffect, useState } from 'react';
+import { memo, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 // Style
@@ -16,15 +16,19 @@ import Option from '../CapacityColorOption';
 import Price from '../Price/Price';
 
 const ProductItem = ({ className, product, direction = 'horizontal' }) => {
-    const capacities = product.capacities;
-    const [currColor, setCurrColor] = useState(capacities[0].colors[0]);
+    // const [capacities] = useState(product.capacities);
+    // const [currColor, setCurrColor] = useState(capacities[0].colors[0]);
+    // const [currCapacity, setCurrCapacity] = useState(capacities[0]);
+    // const [currImg, setCurrImg] = useState(product.sharedImgs[0].imgPaths[0]);
 
-    const [currCapacity, setCurrCapacity] = useState(capacities[0]);
-    const [currImg, setCurrImg] = useState(product.sharedImgs[0].imgPaths[0]);
+    const [capacities] = useState();
+    const [currColor, setCurrColor] = useState();
+    const [currCapacity, setCurrCapacity] = useState();
+    const [currImg, setCurrImg] = useState();
 
     const handleSetCurrImg = (color) => {
-        const foundImg = product.sharedImgs.find((t) => t.colorValue === color.value).imgPaths[0];
-        setCurrImg(foundImg);
+        // const foundImg = product.sharedImgs.find((t) => t.colorValue === color.value).imgPaths[0];
+        // setCurrImg(foundImg);
     };
 
     return (
@@ -34,36 +38,42 @@ const ProductItem = ({ className, product, direction = 'horizontal' }) => {
                     [styles.vertical]: direction === 'vertical' ? true : false,
                 })}
             >
-                <Link to={`/${currColor.linkTo}`} className={clsx(styles.thumbnail)}>
-                    <Image src={currImg} />
-                </Link>
+                {currColor && (
+                    <Link to={`/detail/${currColor.linkTo}`} className={clsx(styles.thumbnail)}>
+                        <Image src={currImg} />
+                    </Link>
+                )}
 
                 <div className="flex-1">
-                    <Name className={styles.name} name={product.name} />
+                    <Name className={styles.name} name={product.Ten_SP} />
 
-                    <div className={clsx(styles.options, 'row ali-center')}>
-                        <Option
-                            product={product}
-                            CapacityClassName="ma-b-12"
-                            CapcityOptionClick={(selected) => setCurrCapacity(selected)}
-                            ColorOptionClick={(selected) => {
-                                handleSetCurrImg(selected);
-                                setCurrColor(selected);
-                            }}
-                            ColorOptionChange={(options, optionChange) => {
-                                setCurrColor(optionChange);
-                                handleSetCurrImg(optionChange);
-                            }}
+                    {capacities && (
+                        <div className={clsx(styles.options, 'row ali-center')}>
+                            <Option
+                                product={product}
+                                CapacityClassName="ma-b-12"
+                                CapcityOptionClick={(selected) => setCurrCapacity(selected)}
+                                ColorOptionClick={(selected) => {
+                                    handleSetCurrImg(selected);
+                                    setCurrColor(selected);
+                                }}
+                                ColorOptionChange={(options, optionChange) => {
+                                    setCurrColor(optionChange);
+                                    handleSetCurrImg(optionChange);
+                                }}
+                            />
+                        </div>
+                    )}
+
+                    {currCapacity && (
+                        <Price
+                            className={'jus-end'}
+                            disCount={currCapacity.discount}
+                            price={currCapacity.price}
+                            disCountClass={clsx(styles.discount)}
+                            priceClass={clsx(styles.price)}
                         />
-                    </div>
-
-                    <Price
-                        className={'jus-end'}
-                        disCount={currCapacity.discount}
-                        price={currCapacity.price}
-                        disCountClass={clsx(styles.discount)}
-                        priceClass={clsx(styles.price)}
-                    />
+                    )}
                 </div>
             </div>
         </div>

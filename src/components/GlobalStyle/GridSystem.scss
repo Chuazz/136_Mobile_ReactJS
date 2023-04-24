@@ -1,3 +1,60 @@
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.row.no-wrap {
+    flex-wrap: nowrap;
+}
+
+.flex-1 {
+    flex: 1;
+}
+
+.row.flex-column {
+    flex-direction: column;
+}
+
+.row.flex-nowarp {
+    flex-wrap: nowrap;
+}
+
+.jus-between {
+    justify-content: space-between;
+}
+
+.jus-evenly {
+    justify-content: space-evenly;
+}
+
+.jus-end {
+    justify-content: end;
+}
+
+.jus-start {
+    justify-content: flex-start;
+}
+
+.jus-center {
+    justify-content: center;
+}
+
+.ali-center {
+    align-items: center;
+}
+
+.ali-end {
+    align-items: flex-end;
+}
+
+.ali-start {
+    align-items: flex-start;
+}
+
+.ali-baseline {
+    align-items: baseline;
+}
+
 .wide {
     padding-left: 35px;
     padding-right: 35px;

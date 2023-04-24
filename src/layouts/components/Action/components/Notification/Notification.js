@@ -27,7 +27,7 @@ function Notification() {
         <Box
             title="Thông báo"
             showMore="Đánh dấu đã đọc"
-            showMoreLink="test"
+            showMoreLink="/notification"
             headerClass={clsx(styles.header)}
             titleClass={clsx(styles.title)}
             className={clsx(styles.items)}

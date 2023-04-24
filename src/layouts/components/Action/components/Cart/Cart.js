@@ -22,7 +22,7 @@ function Cart() {
             titleClass={clsx(styles.title)}
             showMore="Xem tất cả"
             showMoreClass={clsx(styles.showMore)}
-            showMoreLink="test"
+            showMoreLink="/cart"
             headerClass={clsx(styles.header)}
             className={clsx(styles.items)}
         >
@@ -34,10 +34,13 @@ function Cart() {
     const tippyProp = {
         trigger: 'click',
     };
+
     return (
-        <Popup tippyProp={tippyProp} tippyRender={tippyRender} renderClass={clsx(styles.container)}>
-            <Button leftIcon={<BsFillBagFill />} />
-        </Popup>
+        <div className={clsx(styles.container)}>
+            <Popup tippyProp={tippyProp} tippyRender={tippyRender} renderClass={styles.popup}>
+                <Button leftIcon={<BsFillBagFill />} className={styles.button} />
+            </Popup>
+        </div>
     );
 }
 

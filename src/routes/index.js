@@ -1,6 +1,6 @@
 // Component
 import routes from '@/config/routes';
-import { Home, Phone, Accessory, Repair, OldPhone, Cart, Detail } from '@/pages/';
+import { Home, Phone, Accessory, Repair, OldPhone, Cart, Detail, Nofitication, Profile } from '@/pages/';
 
 const publicRoutes = [
     {
@@ -31,6 +31,14 @@ const publicRoutes = [
         path: routes.detail,
         element: Detail,
     },
+    {
+        path: routes.notification,
+        element: Nofitication,
+    },
+    {
+        path: routes.profile,
+        element: Profile,
+    }
 ];
 
 const privateRoutes = [];

@@ -49,3 +49,11 @@
         opacity: 1;
     }
 }
+
+.link.active {
+    background: var(--white-2);
+
+    &:hover {
+        background: var(--white-2);
+    }
+}
