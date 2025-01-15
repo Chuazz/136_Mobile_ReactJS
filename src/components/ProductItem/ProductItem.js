@@ -16,19 +16,19 @@ import Option from '../CapacityColorOption';
 import Price from '../Price/Price';
 
 const ProductItem = ({ className, product, direction = 'horizontal' }) => {
-    // const [capacities] = useState(product.capacities);
-    // const [currColor, setCurrColor] = useState(capacities[0].colors[0]);
-    // const [currCapacity, setCurrCapacity] = useState(capacities[0]);
-    // const [currImg, setCurrImg] = useState(product.sharedImgs[0].imgPaths[0]);
+    const [capacities] = useState(product.capacities);
+    const [currColor, setCurrColor] = useState(capacities[0].colors[0]);
+    const [currCapacity, setCurrCapacity] = useState(capacities[0]);
+    const [currImg, setCurrImg] = useState(product.sharedImgs[0].imgPaths[0]);
 
-    const [capacities] = useState();
-    const [currColor, setCurrColor] = useState();
-    const [currCapacity, setCurrCapacity] = useState();
-    const [currImg, setCurrImg] = useState();
+    // const [capacities] = useState();
+    // const [currColor, setCurrColor] = useState();
+    // const [currCapacity, setCurrCapacity] = useState();
+    // const [currImg, setCurrImg] = useState();
 
     const handleSetCurrImg = (color) => {
-        // const foundImg = product.sharedImgs.find((t) => t.colorValue === color.value).imgPaths[0];
-        // setCurrImg(foundImg);
+        const foundImg = product.sharedImgs.find((t) => t.colorValue === color.value).imgPaths[0];
+        setCurrImg(foundImg);
     };
 
     return (

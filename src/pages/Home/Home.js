@@ -20,13 +20,13 @@ import { products } from '@/data';
 import { productAPI, routes } from '@/config';
 
 function Home() {
-    const [productList, setProductList] = useState([]);
+    const [productList, setProductList] = useState(products);
 
-    useEffect(() => {
-        axios.get(productAPI.list()).then((res) => {
-            setProductList(res.data);
-        });
-    }, []);
+    // useEffect(() => {
+    //     axios.get(productAPI.list()).then((res) => {
+    //         setProductList(res.data);
+    //     });
+    // }, []);
 
     return (
         <div id="home">
